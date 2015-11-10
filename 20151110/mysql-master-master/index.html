@@ -3,17 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>caitiao blog</title>
+  <title>mysql-master-master | caitiao blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一个码农的生活经历，日常工作技巧">
-<meta property="og:type" content="website">
-<meta property="og:title" content="caitiao blog">
-<meta property="og:url" content="http://caitiao.github.io/index.html">
+  <meta name="description" content="环境准备容器 : docker系统 : ubuntu-14.04数据库 : mysql-5.5.46主机A : 172.17.0.2主机B : 172.17.0.3
+
+授权用户
+
+
+主机A :1234mysql&amp;gt; grant replication slave,file on *.* to &apos;backup&apos;@&apos;172.17.0.3&apos; identified by &apos;123456&apos;;mysql&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql-master-master">
+<meta property="og:url" content="http://caitiao.github.io/20151110/mysql-master-master/index.html">
 <meta property="og:site_name" content="caitiao blog">
-<meta property="og:description" content="记录一个码农的生活经历，日常工作技巧">
+<meta property="og:description" content="环境准备容器 : docker系统 : ubuntu-14.04数据库 : mysql-5.5.46主机A : 172.17.0.2主机B : 172.17.0.3
+
+授权用户
+
+
+主机A :1234mysql&amp;gt; grant replication slave,file on *.* to &apos;backup&apos;@&apos;172.17.0.3&apos; identified by &apos;123456&apos;;mysql&amp;">
+<meta property="og:updated_time" content="2015-11-10T09:22:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="caitiao blog">
-<meta name="twitter:description" content="记录一个码农的生活经历，日常工作技巧">
+<meta name="twitter:title" content="mysql-master-master">
+<meta name="twitter:description" content="环境准备容器 : docker系统 : ubuntu-14.04数据库 : mysql-5.5.46主机A : 172.17.0.2主机B : 172.17.0.3
+
+授权用户
+
+
+主机A :1234mysql&amp;gt; grant replication slave,file on *.* to &apos;backup&apos;@&apos;172.17.0.3&apos; identified by &apos;123456&apos;;mysql&amp;">
   
     <link rel="alternative" href="/atom.xml" title="caitiao blog" type="application/atom+xml">
   
@@ -63,9 +79,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-mysql-master-master" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-mysql-master-master" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/20151110/mysql-master-master/" class="article-date">
   <time datetime="2015-11-10T09:09:06.000Z" itemprop="datePublished">2015-11-10</time>
@@ -82,8 +96,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/20151110/mysql-master-master/">mysql-master-master</a>
+    <h1 class="article-title" itemprop="name">
+      mysql-master-master
     </h1>
   
 
@@ -133,186 +147,20 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-linux-iptables-accept-80" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/20151019/linux-iptables-accept-80/" class="article-date">
-  <time datetime="2015-10-19T03:00:16.000Z" itemprop="datePublished">2015-10-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/20151019/linux-iptables-accept-80/">linux-iptables-accept-80</a>
-    </h1>
+    <a href="/20151019/linux-iptables-accept-80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linux-iptables-accept-80</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>linux如果刚安装好防火墙时我们常用的端口是没有增加的，也就是说不能访问，那么要怎么把常用端口增加到防火墙通过状态呢，下面我们以80端口为例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport <span class="number">80</span> -j ACCEPT</span><br><span class="line">/etc/rd.d/init.d/iptables save</span><br><span class="line">/etc/init.d/iptables restart</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://caitiao.github.io/20151019/linux-iptables-accept-80/" data-id="cigt5r3jm000mbzad4r3cqz59" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iptables/">iptables</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vps/">vps</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
-
-  
-    <article id="post-using-sqlite-with-codeigniter" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/20150929/using-sqlite-with-codeigniter/" class="article-date">
-  <time datetime="2015-09-29T01:51:08.000Z" itemprop="datePublished">2015-09-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/php/">php</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20150929/using-sqlite-with-codeigniter/">using-sqlite-with-codeigniter</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>考虑到成本问题，准备把原来程序中的MySql数据库迁移到Sqlite。但是Codeigniter文档中没有详细的描述，经过了多次的百度Google，可以通过PDO连接Sqlite。<br>主要有以下几步：<br>1, 检查服务器是否支持php_pdo_sqlite,如果不支持，先开启php_pdo_sqlite扩展支持<br>2, 创建一个Sqlite数据文件，并确保应用程序能够读写Sqlite数据文件所在的目录。<br>3, 修改Codeignitor中的database.php文件，支持Sqlite</p>
-<p>建表语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> students(<span class="keyword">id</span> <span class="built_in">integer</span>,<span class="keyword">name</span> <span class="built_in">text</span>,age <span class="built_in">integer</span>);</span></span><br></pre></td></tr></table></figure></p>
-<p>database.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'hostname'</span>] = <span class="string">'sqlite:'</span>.APPPATH.<span class="string">'data/example.sqlite'</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'username'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'password'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'database'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'dbdriver'</span>] = <span class="string">'pdo'</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'dbprefix'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'pconnect'</span>] = <span class="keyword">TRUE</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'db_debug'</span>] = <span class="keyword">FALSE</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'cache_on'</span>] = <span class="keyword">FALSE</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'cachedir'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'char_set'</span>] = <span class="string">'utf8'</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'dbcollat'</span>] = <span class="string">'utf8_general_ci'</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'swap_pre'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'autoinit'</span>] = <span class="keyword">TRUE</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'stricton'</span>] = <span class="keyword">FALSE</span>;</span><br></pre></td></tr></table></figure></p>
-<p>测试代码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// load database</span></span><br><span class="line"><span class="variable">$this</span>-&gt;load-&gt;database();</span><br><span class="line"><span class="variable">$db</span> = <span class="variable">$this</span>-&gt;db;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// the student</span></span><br><span class="line"><span class="variable">$student</span> = <span class="keyword">array</span>(</span><br><span class="line"> 	<span class="string">'id'</span> =&gt; <span class="number">1</span>,</span><br><span class="line">	 <span class="string">'name'</span> =&gt; <span class="string">'example'</span>,</span><br><span class="line"> 	<span class="string">'age'</span> =&gt; <span class="number">10</span></span><br><span class="line"> );</span><br><span class="line">  </span><br><span class="line"><span class="comment">// insert student data</span></span><br><span class="line"><span class="variable">$db</span>-&gt;insert(<span class="string">'students'</span>, <span class="variable">$student</span>);</span><br><span class="line">   </span><br><span class="line"><span class="comment">// get students</span></span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$db</span>-&gt;where(<span class="string">'id'</span>, <span class="string">'1'</span>)-&gt;get(<span class="string">'students'</span>);</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://caitiao.github.io/20150929/using-sqlite-with-codeigniter/" data-id="cigt5r3ig0005bzadc8q4x5zz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codeigniter/">Codeigniter</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-attempt-to-write-a-readonly-database" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/20150929/attempt-to-write-a-readonly-database/" class="article-date">
-  <time datetime="2015-09-29T01:48:49.000Z" itemprop="datePublished">2015-09-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/database/">database</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20150929/attempt-to-write-a-readonly-database/">attempt-to-write-a-readonly-database</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为网站没有备案，数据库服务器在国内，跨越了gfw的数据调用，速度如蚂蚁爬。为此，决定选择sqlite来存放数据，减少程序的网络调用。当插入新纪录的时总是显示attempt ti write a readonly a database。顾名思义，数据库没有设置了只读，但是通过sqlite的程序是可以实现CRUD操作的，那么可以排除数据的问题。我们知道sqlite数据库是一个文件，那么linux下最常见的就是文件的访问权限问题了。知道原因了，那么我们就可以尝试通过修改文件的权限来解决，sqlite的读写问题。如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown www-data.www-data data</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://caitiao.github.io/20150929/attempt-to-write-a-readonly-database/" data-id="cigt5r3d70000bzadkz9jrbon" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sqlite/">sqlite</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ubuntu-system-program-problem-detected" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/20150929/ubuntu-system-program-problem-detected/" class="article-date">
-  <time datetime="2015-09-29T01:44:29.000Z" itemprop="datePublished">2015-09-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20150929/ubuntu-system-program-problem-detected/">Ubuntu System Program Problem Detected解决</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每次ubuntu系统启动总会报System Program Problem Detected而且也没啥报错详细信息，ubuntu下可关闭apport。方法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/default/apport</span><br><span class="line">enabled=<span class="number">1</span> 改成 <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://caitiao.github.io/20150929/ubuntu-system-program-problem-detected/" data-id="cigt5r3iu000abzad6qkb0f6u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
 </section>
         
           <aside id="sidebar">
