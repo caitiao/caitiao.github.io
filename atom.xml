@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[caitiao blog]]></title>
+  <subtitle><![CDATA[就现在，Just do it]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://caitiao.github.io/"/>
+  <updated>2015-11-10T09:22:34.000Z</updated>
+  <id>http://caitiao.github.io/</id>
+  
+  <author>
+    <name><![CDATA[caitiao]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[mysql-master-master]]></title>
+    <link href="http://caitiao.github.io/20151110/mysql-master-master/"/>
+    <id>http://caitiao.github.io/20151110/mysql-master-master/</id>
+    <published>2015-11-10T09:09:06.000Z</published>
+    <updated>2015-11-10T09:22:34.000Z</updated>
+    <content type="html"><![CDATA[<ol>
+<li><p>环境准备<br>容器 : docker<br>系统 : ubuntu-14.04<br>数据库 : mysql-5.5.46<br>主机A : 172.17.0.2<br>主机B : 172.17.0.3</p>
+</li>
+<li><p>授权用户</p>
+</li>
+</ol>
+<p>主机A :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant replication slave,file on *.* to <span class="string">'backup'</span>@<span class="string">'172.17.0.3'</span> identified by <span class="string">'123456'</span>;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; <span class="built_in">exit</span>;</span><br><span class="line">service mysql stop</span><br></pre></td></tr></table></figure></p>
+<p>主机B:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant replication slave,file on *.* to <span class="string">'backup'</span>@<span class="string">'172.17.0.2'</span> identified by <span class="string">'123456'</span>;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; <span class="built_in">exit</span>;</span><br><span class="line">service mysql stop</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>配置文件</li>
+</ol>
+<p>主机A:<br>vim /etc/mysql/conf.d/master.cnf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=<span class="number">1</span></span><br><span class="line"><span class="built_in">log</span>-bin=/var/<span class="built_in">log</span>/mysql/mysql-bin.log</span><br><span class="line">replicate-do-db=<span class="built_in">test</span></span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line"><span class="built_in">log</span>-slave-updates</span><br><span class="line">slave-skip-errors=all</span><br><span class="line">sync_binlog=<span class="number">1</span></span><br><span class="line">auto_increment_increment=<span class="number">2</span></span><br><span class="line">auto_increment_offset=<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>主机B:<br>vim /etc/mysql/conf.d/master.cnf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=<span class="number">2</span></span><br><span class="line"><span class="built_in">log</span>-bin=/var/<span class="built_in">log</span>/mysql/mysql-bin.log</span><br><span class="line">replicate-do-db=<span class="built_in">test</span></span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line"><span class="built_in">log</span>-slave-updates</span><br><span class="line">slave-skip-errors=all</span><br><span class="line">sync_binlog=<span class="number">1</span></span><br><span class="line">auto_increment_increment=<span class="number">2</span></span><br><span class="line">auto_increment_offset=<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p><code>log-slave-updates:表示是否开启主主同步,默认不开启,这里要做mysql主主同步,故开启</code><br><code>auto_increment_increment:表示自增步长,考虑到双主双写,故设置为2,防止重复id产生</code><br><code>auto_increment_offset:表示自增开始值</code></p>
+<ol>
+<li><p>重启MySQL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置MySQL参数,建立主从联系</p>
+</li>
+</ol>
+<p>主机A:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; flush tables with <span class="built_in">read</span> lock;</span><br><span class="line">mysql&gt; show master status;</span><br><span class="line">记住``File,Position值``</span><br><span class="line">mysql&gt; change master to master_host=<span class="string">'172.17.0.3'</span>, master_user=<span class="string">'backup'</span>, master_password=<span class="string">'123456'</span>, master_<span class="built_in">log</span>_file=<span class="string">'File'</span>, master_<span class="built_in">log</span>_pos=<span class="variable">$Position</span>;</span><br><span class="line">mysql&gt; start slave;</span><br><span class="line">mysql&gt; unlock tables;</span><br></pre></td></tr></table></figure></p>
+<p>主机B:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; flush tables with <span class="built_in">read</span> lock;</span><br><span class="line">mysql&gt; show master status;</span><br><span class="line">记住``File,Position值``</span><br><span class="line">mysql&gt; change master to master_host=<span class="string">'172.17.0.2'</span>, master_user=<span class="string">'backup'</span>, master_password=<span class="string">'123456'</span>, master_<span class="built_in">log</span>_file=<span class="string">'File'</span>, master_<span class="built_in">log</span>_pos=<span class="variable">$Position</span>;</span><br><span class="line">mysql&gt; start slave;</span><br><span class="line">mysql&gt; unlock tables;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>测试主主复制</li>
+</ol>
+<p>主机A:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use <span class="built_in">test</span>;</span><br><span class="line">mysql&gt; create table t1(id int not null auto_increment primary key,name varchar(<span class="number">20</span>) not null) engine myisam;</span><br></pre></td></tr></table></figure></p>
+<p>主机B:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use <span class="built_in">test</span>;</span><br><span class="line">mysql&gt; show tables;</span><br><span class="line">``可以看到我们刚从建的表t1``</span><br><span class="line">mysql&gt; insert into t1 values(<span class="string">'testB'</span>);</span><br><span class="line">mysql&gt; select * from t1;</span><br><span class="line">``我们看到了我们刚从插入的<span class="built_in">test</span>B这条数据``</span><br></pre></td></tr></table></figure></p>
+<p>主机A:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from t1;</span><br><span class="line">``我们统一看到了刚在主机B插入的<span class="built_in">test</span>B这条数据``</span><br></pre></td></tr></table></figure></p>
+<p>到这里,我们就完成了主机A与主机B的主主复制(Master-Master)</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<ol>
+<li><p>环境准备<br>容器 : docker<br>系统 : ubuntu-14.04<br>数据库 : mysql-5.5.46<br>主机A : 172.17.0.2<br>主机B : 172.17.0.3</p>
+</li>
+<li><p>授权用户</p>]]>
+    </summary>
+    
+      <category term="master" scheme="http://caitiao.github.io/tags/master/"/>
+    
+      <category term="mysql" scheme="http://caitiao.github.io/tags/mysql/"/>
+    
+      <category term="mysql" scheme="http://caitiao.github.io/categories/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[linux-iptables-accept-80]]></title>
+    <link href="http://caitiao.github.io/20151019/linux-iptables-accept-80/"/>
+    <id>http://caitiao.github.io/20151019/linux-iptables-accept-80/</id>
+    <published>2015-10-19T03:00:16.000Z</published>
+    <updated>2015-10-19T11:10:15.000Z</updated>
+    <content type="html"><![CDATA[<p>linux如果刚安装好防火墙时我们常用的端口是没有增加的，也就是说不能访问，那么要怎么把常用端口增加到防火墙通过状态呢，下面我们以80端口为例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport <span class="number">80</span> -j ACCEPT</span><br><span class="line">/etc/rd.d/init.d/iptables save</span><br><span class="line">/etc/init.d/iptables restart</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>linux如果刚安装好防火墙时我们常用的端口是没有增加的，也就是说不能访问，那么要怎么把常用端口增加到防火墙通过状态呢，下面我们以80端口为例:<br><figure class="highlight bash"><table><tr><td class="gutter">]]>
+    </summary>
+    
+      <category term="iptables" scheme="http://caitiao.github.io/tags/iptables/"/>
+    
+      <category term="vps" scheme="http://caitiao.github.io/tags/vps/"/>
+    
+      <category term="linux" scheme="http://caitiao.github.io/categories/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[using-sqlite-with-codeigniter]]></title>
+    <link href="http://caitiao.github.io/20150929/using-sqlite-with-codeigniter/"/>
+    <id>http://caitiao.github.io/20150929/using-sqlite-with-codeigniter/</id>
+    <published>2015-09-29T01:51:08.000Z</published>
+    <updated>2015-09-29T09:57:25.000Z</updated>
+    <content type="html"><![CDATA[<p>考虑到成本问题，准备把原来程序中的MySql数据库迁移到Sqlite。但是Codeigniter文档中没有详细的描述，经过了多次的百度Google，可以通过PDO连接Sqlite。<br>主要有以下几步：<br>1, 检查服务器是否支持php_pdo_sqlite,如果不支持，先开启php_pdo_sqlite扩展支持<br>2, 创建一个Sqlite数据文件，并确保应用程序能够读写Sqlite数据文件所在的目录。<br>3, 修改Codeignitor中的database.php文件，支持Sqlite</p>
+<p>建表语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> students(<span class="keyword">id</span> <span class="built_in">integer</span>,<span class="keyword">name</span> <span class="built_in">text</span>,age <span class="built_in">integer</span>);</span></span><br></pre></td></tr></table></figure></p>
+<p>database.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'hostname'</span>] = <span class="string">'sqlite:'</span>.APPPATH.<span class="string">'data/example.sqlite'</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'username'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'password'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'database'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'dbdriver'</span>] = <span class="string">'pdo'</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'dbprefix'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'pconnect'</span>] = <span class="keyword">TRUE</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'db_debug'</span>] = <span class="keyword">FALSE</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'cache_on'</span>] = <span class="keyword">FALSE</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'cachedir'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'char_set'</span>] = <span class="string">'utf8'</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'dbcollat'</span>] = <span class="string">'utf8_general_ci'</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'swap_pre'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'autoinit'</span>] = <span class="keyword">TRUE</span>;</span><br><span class="line"><span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'stricton'</span>] = <span class="keyword">FALSE</span>;</span><br></pre></td></tr></table></figure></p>
+<p>测试代码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// load database</span></span><br><span class="line"><span class="variable">$this</span>-&gt;load-&gt;database();</span><br><span class="line"><span class="variable">$db</span> = <span class="variable">$this</span>-&gt;db;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// the student</span></span><br><span class="line"><span class="variable">$student</span> = <span class="keyword">array</span>(</span><br><span class="line"> 	<span class="string">'id'</span> =&gt; <span class="number">1</span>,</span><br><span class="line">	 <span class="string">'name'</span> =&gt; <span class="string">'example'</span>,</span><br><span class="line"> 	<span class="string">'age'</span> =&gt; <span class="number">10</span></span><br><span class="line"> );</span><br><span class="line">  </span><br><span class="line"><span class="comment">// insert student data</span></span><br><span class="line"><span class="variable">$db</span>-&gt;insert(<span class="string">'students'</span>, <span class="variable">$student</span>);</span><br><span class="line">   </span><br><span class="line"><span class="comment">// get students</span></span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$db</span>-&gt;where(<span class="string">'id'</span>, <span class="string">'1'</span>)-&gt;get(<span class="string">'students'</span>);</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>考虑到成本问题，准备把原来程序中的MySql数据库迁移到Sqlite。但是Codeigniter文档中没有详细的描述，经过了多次的百度Google，可以通过PDO连接Sqlite。<br>主要有以下几步：<br>1, 检查服务器是否支持php_pdo_sqlite,如果不支]]>
+    </summary>
+    
+      <category term="Codeigniter" scheme="http://caitiao.github.io/tags/Codeigniter/"/>
+    
+      <category term="php" scheme="http://caitiao.github.io/categories/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[attempt-to-write-a-readonly-database]]></title>
+    <link href="http://caitiao.github.io/20150929/attempt-to-write-a-readonly-database/"/>
+    <id>http://caitiao.github.io/20150929/attempt-to-write-a-readonly-database/</id>
+    <published>2015-09-29T01:48:49.000Z</published>
+    <updated>2015-09-29T09:50:40.000Z</updated>
+    <content type="html"><![CDATA[<p>因为网站没有备案，数据库服务器在国内，跨越了gfw的数据调用，速度如蚂蚁爬。为此，决定选择sqlite来存放数据，减少程序的网络调用。当插入新纪录的时总是显示attempt ti write a readonly a database。顾名思义，数据库没有设置了只读，但是通过sqlite的程序是可以实现CRUD操作的，那么可以排除数据的问题。我们知道sqlite数据库是一个文件，那么linux下最常见的就是文件的访问权限问题了。知道原因了，那么我们就可以尝试通过修改文件的权限来解决，sqlite的读写问题。如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown www-data.www-data data</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>因为网站没有备案，数据库服务器在国内，跨越了gfw的数据调用，速度如蚂蚁爬。为此，决定选择sqlite来存放数据，减少程序的网络调用。当插入新纪录的时总是显示attempt ti write a readonly a database。顾名思义，数据库没有设置了只读，但是通]]>
+    </summary>
+    
+      <category term="sqlite" scheme="http://caitiao.github.io/tags/sqlite/"/>
+    
+      <category term="database" scheme="http://caitiao.github.io/categories/database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Ubuntu System Program Problem Detected解决]]></title>
+    <link href="http://caitiao.github.io/20150929/ubuntu-system-program-problem-detected/"/>
+    <id>http://caitiao.github.io/20150929/ubuntu-system-program-problem-detected/</id>
+    <published>2015-09-29T01:44:29.000Z</published>
+    <updated>2015-09-29T09:49:31.000Z</updated>
+    <content type="html"><![CDATA[<p>每次ubuntu系统启动总会报System Program Problem Detected而且也没啥报错详细信息，ubuntu下可关闭apport。方法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/default/apport</span><br><span class="line">enabled=<span class="number">1</span> 改成 <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>每次ubuntu系统启动总会报System Program Problem Detected而且也没啥报错详细信息，ubuntu下可关闭apport。方法如下：<br><figure class="highlight bash"><table><tr><td class="]]>
+    </summary>
+    
+      <category term="ubuntu" scheme="http://caitiao.github.io/tags/ubuntu/"/>
+    
+      <category term="linux" scheme="http://caitiao.github.io/categories/linux/"/>
+    
+  </entry>
+  
+</feed>

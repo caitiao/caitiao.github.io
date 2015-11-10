@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,15 +37,15 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
-
 </head>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
+<div id="container">
+  <div id="wrap">
+    <header id="header">
   <div id="banner"></div>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
@@ -61,9 +62,11 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/">首页</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/archives">文章列表</a>
+        
+          <a class="main-nav-link" href="/sitemap.xml">网站地图</a>
         
       </nav>
       <nav id="sub-nav">
@@ -73,13 +76,20 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://caitiao.github.io"></form>
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="caitiao.github.io">
+        </form>
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-mysql-master-master" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="outer">
+      <section id="main"><article id="post-mysql-master-master" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/20151110/mysql-master-master/" class="article-date">
   <time datetime="2015-11-10T09:09:06.000Z" itemprop="datePublished">2015-11-10</time>
@@ -105,7 +115,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
+        
+        
+                <ol>
 <li><p>环境准备<br>容器 : docker<br>系统 : ubuntu-14.04<br>数据库 : mysql-5.5.46<br>主机A : 172.17.0.2<br>主机B : 172.17.0.3</p>
 </li>
 <li><p>授权用户</p>
@@ -137,10 +149,15 @@
 <p>到这里,我们就完成了主机A与主机B的主主复制(Master-Master)</p>
 
       
+      
     </div>
     <footer class="article-footer">
-      <a data-url="http://caitiao.github.io/20151110/mysql-master-master/" data-id="cigt5r3j7000fbzadx4u1v5ft" class="article-share-link">Share</a>
       
+        <a data-url="http://caitiao.github.io/20151110/mysql-master-master/" data-id="cigt5r3j7000fbzadx4u1v5ft" class="article-share-link" data-share="baidu" data-title="mysql-master-master">分享到</a>
+      
+
+      
+
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/master/">master</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
 
@@ -152,7 +169,7 @@
   
   
     <a href="/20151019/linux-iptables-accept-80/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">linux-iptables-accept-80</div>
     </a>
   
@@ -162,12 +179,12 @@
 </article>
 
 </section>
-        
-          <aside id="sidebar">
+      
+      <aside id="sidebar">
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li></ul>
     </div>
@@ -176,7 +193,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codeigniter/">Codeigniter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iptables/">iptables</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/master/">master</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite/">sqlite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vps/">vps</a><span class="tag-list-count">1</span></li></ul>
     </div>
@@ -185,7 +202,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
       <a href="/tags/Codeigniter/" style="font-size: 10px;">Codeigniter</a> <a href="/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/tags/master/" style="font-size: 10px;">master</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vps/" style="font-size: 10px;">vps</a>
     </div>
@@ -194,7 +211,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
@@ -203,7 +220,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
+    <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
         
@@ -233,36 +250,72 @@
 
   
 </aside>
-        
-      </div>
-      <footer id="footer">
+      
+    </div>
+    <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2015 caitiao<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+  </div>
+  <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">首页</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">文章列表</a>
+  
+    <a href="/sitemap.xml" class="mobile-nav-link">网站地图</a>
   
 </nav>
-    
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- totop end -->
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
 
 
 <script src="/js/script.js" type="text/javascript"></script>
 
-  </div>
+</div>
 </body>
 </html>
