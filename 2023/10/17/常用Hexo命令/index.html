@@ -20,21 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在终端中输入ifconfig可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。在linux中使用命令 12345678$ ifconfig eth0eth0: flags&#x3D;4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500        inet 192.168.8">
+  <meta name="description" content="hexo常用命令：指令 | Hexo 安装hexo1npm install hexo-cli -g 新建一个网站12hexo init #默认在当前目录创建hexo init [folder] #指定网站目录 新建一篇文章1hexo new [layout] &lt;title&gt; 发布草稿1hexo publish [layout] &lt;filename&gt; 清除已生成的静态文件及缓">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用ifconfig查看本机ip">
-<meta property="og:url" content="http://example.com/2023/10/17/%E4%BD%BF%E7%94%A8ifconfig%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip/index.html">
+<meta property="og:title" content="常用Hexo命令">
+<meta property="og:url" content="http://example.com/2023/10/17/%E5%B8%B8%E7%94%A8Hexo%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="caitiao的博客">
-<meta property="og:description" content="在终端中输入ifconfig可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。在linux中使用命令 12345678$ ifconfig eth0eth0: flags&#x3D;4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500        inet 192.168.8">
+<meta property="og:description" content="hexo常用命令：指令 | Hexo 安装hexo1npm install hexo-cli -g 新建一个网站12hexo init #默认在当前目录创建hexo init [folder] #指定网站目录 新建一篇文章1hexo new [layout] &lt;title&gt; 发布草稿1hexo publish [layout] &lt;filename&gt; 清除已生成的静态文件及缓">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-17T10:28:09.000Z">
 <meta property="article:modified_time" content="2023-10-27T08:09:37.737Z">
 <meta property="article:author" content="caitiao">
-<meta property="article:tag" content="ifconfig">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2023/10/17/%E4%BD%BF%E7%94%A8ifconfig%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip/">
+<link rel="canonical" href="http://example.com/2023/10/17/%E5%B8%B8%E7%94%A8Hexo%E5%91%BD%E4%BB%A4/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>使用ifconfig查看本机ip | caitiao的博客</title>
+  <title>常用Hexo命令 | caitiao的博客</title>
   
 
 
@@ -153,7 +152,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E4%BD%BF%E7%94%A8ifconfig%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E5%B8%B8%E7%94%A8Hexo%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -166,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          使用ifconfig查看本机ip
+          常用Hexo命令
         </h1>
 
         <div class="post-meta">
@@ -206,18 +205,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0</span><br><span class="line">eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.8.21  netmask 255.255.240.0  broadcast 192.168.8.1</span><br><span class="line">        ether 00:16:3e:0c:ec:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 215013189  bytes 59080762287 (55.0 GiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 125960779  bytes 124345275246 (115.8 GiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
-
-<p>第二行的第一个ip就是本机ip<code>192.168.8.21</code></p>
-<p>在MacOS中稍有不同，命令为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ifconfig en0</span><br></pre></td></tr></table></figure>
-<p>接下来，我们使用<code>grep</code> <code>awk</code>来进行精确获取</p>
-<h4 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27; | awk -v FS=&quot;:&quot; &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig en0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+        <p>hexo常用命令：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
+<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个网站"><a href="#新建一个网站" class="headerlink" title="新建一个网站"></a>新建一个网站</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init #默认在当前目录创建</span><br><span class="line">hexo init [folder] #指定网站目录</span><br></pre></td></tr></table></figure>
+<h4 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="发布草稿"><a href="#发布草稿" class="headerlink" title="发布草稿"></a>发布草稿</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="清除已生成的静态文件及缓存文件-db-json"><a href="#清除已生成的静态文件及缓存文件-db-json" class="headerlink" title="清除已生成的静态文件及缓存文件 (db.json)"></a>清除已生成的静态文件及缓存文件 (db.json)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h4 id="强制重新生成静态文件"><a href="#强制重新生成静态文件" class="headerlink" title="强制重新生成静态文件"></a>强制重新生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -f</span><br></pre></td></tr></table></figure>
+<h4 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="启动网站服务"><a href="#启动网站服务" class="headerlink" title="启动网站服务"></a>启动网站服务</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="显示-Hexo-版本"><a href="#显示-Hexo-版本" class="headerlink" title="显示 Hexo 版本"></a>显示 Hexo 版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -227,8 +225,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ifconfig/" rel="tag"># ifconfig</a>
-              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
           </div>
 
         
@@ -237,12 +234,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/10/17/%E5%B8%B8%E7%94%A8Hexo%E5%91%BD%E4%BB%A4/" rel="prev" title="常用Hexo命令">
-      <i class="fa fa-chevron-left"></i> 常用Hexo命令
+    <a href="/2023/08/08/A-New-Blog-VS-Code-Hexo-and-GitHub-Pages/" rel="prev" title="使用VS Code，Hexo与GitHub Pages写博客">
+      <i class="fa fa-chevron-left"></i> 使用VS Code，Hexo与GitHub Pages写博客
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/10/17/%E5%B8%B8%E7%94%A8Docker%E5%91%BD%E4%BB%A4/" rel="next" title="常用docker命令">
-      常用docker命令 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/10/17/%E4%BD%BF%E7%94%A8ifconfig%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip/" rel="next" title="使用ifconfig查看本机ip">
+      使用ifconfig查看本机ip <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -302,7 +299,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#CentOS"><span class="nav-number">1.</span> <span class="nav-text">CentOS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ubuntu"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MacOS"><span class="nav-number">3.</span> <span class="nav-text">MacOS</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99"><span class="nav-number">2.</span> <span class="nav-text">新建一个网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0"><span class="nav-number">3.</span> <span class="nav-text">新建一篇文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%8D%89%E7%A8%BF"><span class="nav-number">4.</span> <span class="nav-text">发布草稿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%85%E9%99%A4%E5%B7%B2%E7%94%9F%E6%88%90%E7%9A%84%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E5%8F%8A%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6-db-json"><span class="nav-number">5.</span> <span class="nav-text">清除已生成的静态文件及缓存文件 (db.json)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%88%B6%E9%87%8D%E6%96%B0%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">7.</span> <span class="nav-text">强制重新生成静态文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%97%E5%87%BA%E7%BD%91%E7%AB%99%E8%B5%84%E6%96%99"><span class="nav-number">8.</span> <span class="nav-text">列出网站资料</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%BD%91%E7%AB%99%E6%9C%8D%E5%8A%A1"><span class="nav-number">9.</span> <span class="nav-text">启动网站服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA-Hexo-%E7%89%88%E6%9C%AC"><span class="nav-number">10.</span> <span class="nav-text">显示 Hexo 版本</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -22,27 +22,27 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="caitiao的博客">
-<meta property="og:url" content="http://example.com/categories/%E6%8A%80%E6%9C%AF/k8s/index.html">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="caitiao的博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="caitiao">
 <meta property="article:tag" content="IT老兵，Java，云计算">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/categories/%E6%8A%80%E6%9C%AF/k8s/">
+<link rel="canonical" href="http://example.com/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: k8s | caitiao的博客</title>
+  <title>caitiao的博客</title>
   
 
 
@@ -141,92 +141,107 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/08/A-New-Blog-VS-Code-Hexo-and-GitHub-Pages/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">k8s
-          <small>分类</small>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="caitiao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caitiao的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/08/A-New-Blog-VS-Code-Hexo-and-GitHub-Pages/" class="post-title-link" itemprop="url">使用VS Code，Hexo与GitHub Pages写博客</a>
         </h2>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-08 00:22:38" itemprop="dateCreated datePublished" datetime="2023-08-08T00:22:38+00:00">2023-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-27 08:09:37" itemprop="dateModified" datetime="2023-10-27T08:09:37+00:00">2023-10-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+          <span id="more"></span>
+<p>转眼间，作为一个IT老兵，在互联网圈捣鼓了10多年。经历了互联网的高光时刻，见证了双11剁手党买买买的狂欢，小长假12306购票系统全民压测……想着通过博文的形式写一点东西，做个记录。作为具备动手能力的IT人总想着亲力亲为，动手构建自己的个人博客就成了常态，一直在搭建的路上…..<br>10多年前，我经历了挂靠技术站点，基于wordpress搭建个人博客网站，重复造轮子编写博客程序(flask+sqlite3)等。从零开始构建博客程序以及为它撰写文章的过程真是令人兴奋，不断丰富功能和保持其正常运行耗费了大量时间。直到遇见hexo与github page，非常惊艳，我决定悄然放弃它。<br>那样我就能使用我最喜欢的编辑器Visual Studio Code去写博客，而且可用使用熟悉的markdown语法去写。再通过静态网站生成器hexo生成静态文件，最后通过hexo deploy发布到github pages，就完成了一篇博文的编写。</p>
+<p>现在，我们开始开启<a target="_blank" rel="noopener" href="https://hexo.io/docs/setup">hexo之旅</a><br>构建我的博客网站</p>
+<ol>
+<li>创建文件夹并在VS Code中打开</li>
+<li>在VS Code终端窗口中打开</li>
+<li>使用 $ npm install -g hexo-cli 安装Hexo</li>
+<li>使用 $ hexo init 初始化Hexo项目</li>
+<li>使用 npm install 安装依赖</li>
+</ol>
+<p>开始写第一篇博客</p>
+<ol>
+<li>hexo new post | draft “Hello Hexo”</li>
+<li>用熟悉的Markdown语法写文章</li>
+<li>摘要 <!-- more --></li>
+<li>插入图片 </li>
+<li>构建配置常用命令<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo publish</span><br><span class="line">hexo clean `清除文件夹`</span><br><span class="line">hexo generate `构建静态文件`</span><br><span class="line">hexo server `本地预览`</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>自定义域名：</p>
+<ol>
+<li>创建一个名为CNAME的文本文件，将域名内容放在一行中，然后将此文件发布到docs文件夹的根目录。GitHub会自动识别这个文件并进行设置。</li>
+<li>为了将域名指向GitHub，我需要在域名提供商的DNS设置中创建以下A记录：<ul>
+<li>185.199.108.153</li>
+<li>185.199.109.153</li>
+<li>185.199.110.153</li>
+<li>185.199.111.153</li>
+</ul>
+</li>
+<li>最后一步是在仓库设置中启用“Enforce HTTPS”</li>
+</ol>
+
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-25T10:19:51+00:00"
-              content="2023-10-25">
-          10-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/10/25/Deployment%E8%B5%84%E6%BA%90%E5%AF%B9%E8%B1%A1yaml%E8%AF%A6%E8%A7%A3/" itemprop="url">
-            <span itemprop="name">Deployment资源对象yaml详解</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-25T10:18:14+00:00"
-              content="2023-10-25">
-          10-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/10/25/Service%E8%B5%84%E6%BA%90%E5%AF%B9%E8%B1%A1yaml%E8%AF%A6%E8%A7%A3/" itemprop="url">
-            <span itemprop="name">Service资源对象yaml详解</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-25T10:14:47+00:00"
-              content="2023-10-25">
-          10-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/10/25/Pod%E8%B5%84%E6%BA%90%E5%AF%B9%E8%B1%A1yaml%E8%AF%A6%E8%A7%A3/" itemprop="url">
-            <span itemprop="name">Pod资源对象yaml详解</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
-  </div>
   
   
   
 
+
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
