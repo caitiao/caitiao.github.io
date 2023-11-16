@@ -147,6 +147,410 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/25/%E6%A0%B9%E6%8D%AE%E8%BF%9B%E7%A8%8B%E5%90%8D%E8%BF%87%E6%BB%A4%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="caitiao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caitiao的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/25/%E6%A0%B9%E6%8D%AE%E8%BF%9B%E7%A8%8B%E5%90%8D%E8%BF%87%E6%BB%A4%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">根据进程名过滤进程信息</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-25 09:57:53" itemprop="dateCreated datePublished" datetime="2023-10-25T09:57:53+00:00">2023-10-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-16 08:10:35" itemprop="dateModified" datetime="2023-11-16T08:10:35+00:00">2023-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">常用脚本</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/25/%E6%A0%B9%E6%8D%AEPID%E8%BF%87%E6%BB%A4%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="caitiao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caitiao的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/25/%E6%A0%B9%E6%8D%AEPID%E8%BF%87%E6%BB%A4%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">根据PID过滤进程信息</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-25 09:23:31" itemprop="dateCreated datePublished" datetime="2023-10-25T09:23:31+00:00">2023-10-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-16 08:10:35" itemprop="dateModified" datetime="2023-11-16T08:10:35+00:00">2023-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">常用脚本</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/23/%E5%B8%B8%E7%94%A8Git%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="caitiao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caitiao的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/23/%E5%B8%B8%E7%94%A8Git%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">常用Git命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-23 15:48:46" itemprop="dateCreated datePublished" datetime="2023-10-23T15:48:46+00:00">2023-10-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-16 08:10:35" itemprop="dateModified" datetime="2023-11-16T08:10:35+00:00">2023-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">常用命令</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
+<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
+<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
+<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
+<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
+<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
+<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/23/ls-operation-not-permitted/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="caitiao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caitiao的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/23/ls-operation-not-permitted/" class="post-title-link" itemprop="url">ls Operation not permitted</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-23 13:25:36" itemprop="dateCreated datePublished" datetime="2023-10-23T13:25:36+00:00">2023-10-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-16 08:10:35" itemprop="dateModified" datetime="2023-11-16T08:10:35+00:00">2023-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="url" rel="index"><span itemprop="name">问题解决</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
+<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
+<ol>
+<li>单击菜单栏上的苹果图标</li>
+<li>选择系统偏好设置</li>
+<li>点击安全和隐私，</li>
+<li>选择文件和文件夹，</li>
+<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
+<li>点击退出并重新打开</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E5%B8%B8%E7%94%A8Docker%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="caitiao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caitiao的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/17/%E5%B8%B8%E7%94%A8Docker%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">常用docker命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-17 11:37:36" itemprop="dateCreated datePublished" datetime="2023-10-17T11:37:36+00:00">2023-10-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-16 08:10:35" itemprop="dateModified" datetime="2023-11-16T08:10:35+00:00">2023-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">常用命令</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
+<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
+<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E4%BD%BF%E7%94%A8ifconfig%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -178,7 +582,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-15 08:10:29" itemprop="dateModified" datetime="2023-11-15T08:10:29+00:00">2023-11-15</time>
+                <time title="修改时间：2023-11-16 08:10:35" itemprop="dateModified" datetime="2023-11-16T08:10:35+00:00">2023-11-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,7 +667,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-15 08:10:29" itemprop="dateModified" datetime="2023-11-15T08:10:29+00:00">2023-11-15</time>
+                <time title="修改时间：2023-11-16 08:10:35" itemprop="dateModified" datetime="2023-11-16T08:10:35+00:00">2023-11-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -347,7 +751,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-15 08:10:29" itemprop="dateModified" datetime="2023-11-15T08:10:29+00:00">2023-11-15</time>
+                <time title="修改时间：2023-11-16 08:10:35" itemprop="dateModified" datetime="2023-11-16T08:10:35+00:00">2023-11-16</time>
               </span>
 
           
@@ -475,7 +879,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -484,7 +888,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
