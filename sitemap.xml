@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://caitiao.huitailang.pub/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</loc>
-    
-    <lastmod>2023-11-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</loc>
-    
-    <lastmod>2023-11-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://caitiao.huitailang.pub/2023/10/25/pod-zi-yuan-dui-xiang-yaml-xiang-jie/</loc>
     
     <lastmod>2023-11-17</lastmod>
@@ -165,6 +147,24 @@
   
   <url>
     <loc>http://caitiao.huitailang.pub/about/index.html</loc>
+    
+    <lastmod>2023-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</loc>
+    
+    <lastmod>2023-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</loc>
     
     <lastmod>2023-11-17</lastmod>
     
