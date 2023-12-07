@@ -2,69 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://caitiao.huitailang.pub/2023/10/17/chang-yong-hexo-ming-ling/</loc>
-    
-    <lastmod>2023-12-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/10/31/ying-yong-xian-dai-hua/</loc>
-    
-    <lastmod>2023-12-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</loc>
-    
-    <lastmod>2023-12-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</loc>
-    
-    <lastmod>2023-12-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/10/31/xian-dai-ying-yong-cheng-xu/</loc>
-    
-    <lastmod>2023-12-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</loc>
-    
-    <lastmod>2023-12-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/about/index.html</loc>
-    
-    <lastmod>2023-12-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://caitiao.huitailang.pub/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</loc>
     
     <lastmod>2023-12-07</lastmod>
@@ -174,6 +111,69 @@
   
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/23/chang-yong-git-ming-ling/</loc>
+    
+    <lastmod>2023-12-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/10/17/chang-yong-hexo-ming-ling/</loc>
+    
+    <lastmod>2023-12-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/10/31/ying-yong-xian-dai-hua/</loc>
+    
+    <lastmod>2023-12-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</loc>
+    
+    <lastmod>2023-12-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</loc>
+    
+    <lastmod>2023-12-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/10/31/xian-dai-ying-yong-cheng-xu/</loc>
+    
+    <lastmod>2023-12-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</loc>
+    
+    <lastmod>2023-12-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/about/index.html</loc>
     
     <lastmod>2023-12-07</lastmod>
     
