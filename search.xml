@@ -116,7 +116,7 @@
 <li>自动补全插件(autocomplete)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=(zsh-syntax-highlighting zsh-autosuggestions)</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="6">
-<li>iTerm2隐藏用户名和主机名<br>通常在Shell中默认的用户名和主机名加在一起会很长，使用的时候影响观感，我们可以通过配置去除掉<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"># 新增DEFAULT_USER=&quot;xxxxx&quot;配置</span><br><span class="line">DEFAULT_USER=&quot;xxxxx&quot;</span><br><span class="line"># 退出并保存后，使配置生效</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure></li>
+<li>iTerm2隐藏用户名和主机名<br>通常在Shell中默认的用户名和主机名加在一起会很长，使用的时候影响观感，我们可以通过配置去除掉<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"># 新增DEFAULT_USER=&quot;xxxxx&quot;配置</span><br><span class="line">DEFAULT_USER=&quot;xxxxx&quot; #xxxxx是当前用户名，可以通过whoami获得</span><br><span class="line"># 退出并保存后，使配置生效</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
       <categories>
