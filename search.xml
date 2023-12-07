@@ -89,6 +89,44 @@
       </tags>
   </entry>
   <entry>
+    <title>iterm2配置123</title>
+    <url>/2023/12/07/iterm2-pei-zhi-zhi-nan/</url>
+    <content><![CDATA[<p>拿到mac电脑后，第一件事一般都会需要配置一个适合自己用的终端。我一般选择iterm2作为日常工作的终端，下面我就来记录下怎么配置我的iterm2。</p>
+<ol>
+<li>安装iterm2<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install iterm2</span><br></pre></td></tr></table></figure></li>
+<li>oh-my-zsh<br>我电脑默认的sh是zsh，有了oh-my-zsh配置zsh就事半功倍。</li>
+</ol>
+<ul>
+<li>检查当前系统支持的shell<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure></li>
+<li>将当前默认shell设置为zsh<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure></li>
+<li>安装oh-my-zsh<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li><p>配置zsh主题</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line">找到ZSH_THEME配置你想配置的主题，你可以在https://github.com/ohmyzsh/ohmyzsh/wiki/Themes 找到自己想要的主题</span><br><span class="line">我的配置：ZSH_THEME=&quot;agnoster&quot; </span><br></pre></td></tr></table></figure></li>
+<li><p>字体配置<br>下载特定字体，以避免无法解码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># clone</span><br><span class="line">git clone https://github.com/powerline/fonts.git --depth=1</span><br><span class="line"># install</span><br><span class="line">./fonts/install.sh</span><br><span class="line"># 清楚当前字体目录</span><br><span class="line">rm -rf fonts</span><br></pre></td></tr></table></figure>
+<p>打开iterm2首选项，配置文件-&gt;文件-&gt;字体，选择“Meslo LG M for Powerline”字体，如果这一步不设置，可能会出现乱码</p>
+</li>
+<li><p>安装推荐的插件</p>
+</li>
+</ol>
+<ul>
+<li>语法高亮插件(syntax-highlighting)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=(zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure></li>
+<li>自动补全插件(autocomplete)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=(zsh-syntax-highlighting zsh-autosuggestions)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="6">
+<li>其他<br>还有各种有趣及有用的插件，需要广大同好去探索</li>
+</ol>
+]]></content>
+      <categories>
+        <category>常用配置</category>
+      </categories>
+      <tags>
+        <tag>iterm2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k8s如何停止服务</title>
     <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
     <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
