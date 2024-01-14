@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Deployment资源对象yaml详解</title>
+    <url>/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
+    <content><![CDATA[<p>Deployment资源对象yaml详解</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata: ----------------------------------------#元数据</span><br><span class="line">  annotations: -------------------------------------#注释信息</span><br><span class="line">    deployment.kubernetes.io/revision: &#x27;1&#x27;</span><br><span class="line">    k8s.kuboard.cn/ingress: &#x27;false&#x27;</span><br><span class="line">    k8s.kuboard.cn/service: NodePort</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels:-------------------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;            </span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud-----------------------------------#名称</span><br><span class="line">  namespace: nextcloud------------------------------#命名空间 </span><br><span class="line">spec:-----------------------------------------------#定义容器模板，该模板可以包含多个容器 </span><br><span class="line">  replicas: 3---------------------------------------#副本数量</span><br><span class="line">  selector:-----------------------------------------#标签选择器</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">      k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  strategy:-----------------------------------------#滚动升级策略</span><br><span class="line">    type: RollingUpdate-----------------------------#类型</span><br><span class="line">    rollingUpdate:----------------------------------#由于replicas为3,则整个升级,pod个数在2-4个之间    </span><br><span class="line">      maxSurge: 25%---------------------------------#滚动升级时会先启动25%pod  </span><br><span class="line">      maxUnavailable: 25%---------------------------#滚动升级时允许的最大Unavailable的pod个数</span><br><span class="line">  template:                     #镜像模板                   </span><br><span class="line">    metadata: ------------------------------------#元数据</span><br><span class="line">      labels:---------------------------------------#标签</span><br><span class="line">        k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">        k8s.kuboard.cn/name: nextcloud</span><br><span class="line">    spec: ------------------------------------------#定义容器模板，该模板可以包含多个容器</span><br><span class="line">      containers: ----------------------------------#容器信息</span><br><span class="line">    - name: nextcloud --------------------------#容器名称</span><br><span class="line">          image: &#x27;172.16.20.100/library/nextcloud:yan&#x27; #镜像名称</span><br><span class="line">          imagePullPolicy: Always ------------------#镜像下载策略 </span><br><span class="line">          ports:</span><br><span class="line">            - name: http</span><br><span class="line">              containerPort: 80</span><br><span class="line">              protocol: TCP</span><br><span class="line">          env</span><br><span class="line">          resources: -------------------------------#CPU内存限制</span><br><span class="line">        limits: --------------------------------#限制cpu内存                      </span><br><span class="line">              cpu: 200m</span><br><span class="line">              memory: 200m</span><br><span class="line">            requests: ------------------------------#请求cpu内存</span><br><span class="line">              cpu: 100m</span><br><span class="line">              memory: 100m</span><br><span class="line">          securityContext: -------------------------#安全设定</span><br><span class="line">            privileged: true -----------------------#开启享有特权</span><br><span class="line">          volumeMounts: ----------------------------#挂载volumes中定义的磁盘</span><br><span class="line">        - name: html ---------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/www/html </span><br><span class="line">            - name: session ------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/lib/php/session       </span><br><span class="line">      volumes:  ------------------------------------#在该pod上定义共享存储卷列表</span><br><span class="line">        - name: html -------------------------------#共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">          persistentVolumeClaim: -------------------#volumes类型为pvc</span><br><span class="line">            claimName: html  -----------------------#关联pvc名称</span><br><span class="line">        - name: session</span><br><span class="line">          persistentVolumeClaim:</span><br><span class="line">            claimName: session        </span><br><span class="line">      restartPolicy: Always ------------------------#Pod的重启策略 </span><br><span class="line">                              #Always表示一旦不管以何种方式终止运行，kubelet都将重启，</span><br><span class="line">                              #OnFailure表示只有Pod以非0退出码退出才重启，</span><br><span class="line">                              #Nerver表示不再重启该Pod</span><br><span class="line">      schedulerName: default-scheduler -------------#指定pod调度到节点</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>yaml</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用VS Code，Hexo与GitHub Pages写博客</title>
     <url>/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</url>
     <content><![CDATA[<span id="more"></span>
@@ -38,22 +54,6 @@
         <tag>VS Code</tag>
         <tag>Hexo</tag>
         <tag>GitHub Pages</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deployment资源对象yaml详解</title>
-    <url>/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
-    <content><![CDATA[<p>Deployment资源对象yaml详解</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata: ----------------------------------------#元数据</span><br><span class="line">  annotations: -------------------------------------#注释信息</span><br><span class="line">    deployment.kubernetes.io/revision: &#x27;1&#x27;</span><br><span class="line">    k8s.kuboard.cn/ingress: &#x27;false&#x27;</span><br><span class="line">    k8s.kuboard.cn/service: NodePort</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels:-------------------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;            </span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud-----------------------------------#名称</span><br><span class="line">  namespace: nextcloud------------------------------#命名空间 </span><br><span class="line">spec:-----------------------------------------------#定义容器模板，该模板可以包含多个容器 </span><br><span class="line">  replicas: 3---------------------------------------#副本数量</span><br><span class="line">  selector:-----------------------------------------#标签选择器</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">      k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  strategy:-----------------------------------------#滚动升级策略</span><br><span class="line">    type: RollingUpdate-----------------------------#类型</span><br><span class="line">    rollingUpdate:----------------------------------#由于replicas为3,则整个升级,pod个数在2-4个之间    </span><br><span class="line">      maxSurge: 25%---------------------------------#滚动升级时会先启动25%pod  </span><br><span class="line">      maxUnavailable: 25%---------------------------#滚动升级时允许的最大Unavailable的pod个数</span><br><span class="line">  template:                     #镜像模板                   </span><br><span class="line">    metadata: ------------------------------------#元数据</span><br><span class="line">      labels:---------------------------------------#标签</span><br><span class="line">        k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">        k8s.kuboard.cn/name: nextcloud</span><br><span class="line">    spec: ------------------------------------------#定义容器模板，该模板可以包含多个容器</span><br><span class="line">      containers: ----------------------------------#容器信息</span><br><span class="line">    - name: nextcloud --------------------------#容器名称</span><br><span class="line">          image: &#x27;172.16.20.100/library/nextcloud:yan&#x27; #镜像名称</span><br><span class="line">          imagePullPolicy: Always ------------------#镜像下载策略 </span><br><span class="line">          ports:</span><br><span class="line">            - name: http</span><br><span class="line">              containerPort: 80</span><br><span class="line">              protocol: TCP</span><br><span class="line">          env</span><br><span class="line">          resources: -------------------------------#CPU内存限制</span><br><span class="line">        limits: --------------------------------#限制cpu内存                      </span><br><span class="line">              cpu: 200m</span><br><span class="line">              memory: 200m</span><br><span class="line">            requests: ------------------------------#请求cpu内存</span><br><span class="line">              cpu: 100m</span><br><span class="line">              memory: 100m</span><br><span class="line">          securityContext: -------------------------#安全设定</span><br><span class="line">            privileged: true -----------------------#开启享有特权</span><br><span class="line">          volumeMounts: ----------------------------#挂载volumes中定义的磁盘</span><br><span class="line">        - name: html ---------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/www/html </span><br><span class="line">            - name: session ------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/lib/php/session       </span><br><span class="line">      volumes:  ------------------------------------#在该pod上定义共享存储卷列表</span><br><span class="line">        - name: html -------------------------------#共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">          persistentVolumeClaim: -------------------#volumes类型为pvc</span><br><span class="line">            claimName: html  -----------------------#关联pvc名称</span><br><span class="line">        - name: session</span><br><span class="line">          persistentVolumeClaim:</span><br><span class="line">            claimName: session        </span><br><span class="line">      restartPolicy: Always ------------------------#Pod的重启策略 </span><br><span class="line">                              #Always表示一旦不管以何种方式终止运行，kubelet都将重启，</span><br><span class="line">                              #OnFailure表示只有Pod以非0退出码退出才重启，</span><br><span class="line">                              #Nerver表示不再重启该Pod</span><br><span class="line">      schedulerName: default-scheduler -------------#指定pod调度到节点</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>yaml</tag>
       </tags>
   </entry>
   <entry>
@@ -145,6 +145,30 @@
       </tags>
   </entry>
   <entry>
+    <title>kubectl常用命令</title>
+    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
+    <content><![CDATA[<p>kubectl常用命令</p>
+<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
+<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
+<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
+<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>kubectl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -175,30 +199,6 @@
       </categories>
       <tags>
         <tag>k8s</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kubectl常用命令</title>
-    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
-    <content><![CDATA[<p>kubectl常用命令</p>
-<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
-<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
-<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
-<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>kubectl</tag>
       </tags>
   </entry>
   <entry>
