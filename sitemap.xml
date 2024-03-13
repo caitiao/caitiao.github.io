@@ -38,6 +38,15 @@
   </url>
   
   <url>
+    <loc>http://caitiao.huitailang.pub/2024/03/13/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</loc>
+    
+    <lastmod>2024-03-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://caitiao.huitailang.pub/2023/12/07/iterm2-pei-zhi-zhi-nan/</loc>
     
     <lastmod>2024-03-13</lastmod>
@@ -412,14 +421,14 @@
   </url>
   
   <url>
-    <loc>http://caitiao.huitailang.pub/categories/%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</loc>
+    <loc>http://caitiao.huitailang.pub/categories/%E6%8A%80%E6%9C%AF/k8s/</loc>
     <lastmod>2024-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://caitiao.huitailang.pub/categories/%E6%8A%80%E6%9C%AF/k8s/</loc>
+    <loc>http://caitiao.huitailang.pub/categories/%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2024-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
