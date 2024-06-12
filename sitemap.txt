@@ -1,3 +1,8 @@
+http://caitiao.huitailang.pub/2023/11/06/kubectl-chang-yong-ming-ling/
+http://caitiao.huitailang.pub/2023/10/23/ls-operation-not-permitted/
+http://caitiao.huitailang.pub/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/
+http://caitiao.huitailang.pub/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/
+http://caitiao.huitailang.pub/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/
 http://caitiao.huitailang.pub/2023/10/17/chang-yong-docker-ming-ling/
 http://caitiao.huitailang.pub/2023/10/23/chang-yong-git-ming-ling/
 http://caitiao.huitailang.pub/2023/10/17/chang-yong-hexo-ming-ling/
@@ -11,15 +16,10 @@ http://caitiao.huitailang.pub/2023/08/08/a-new-blog-vs-code-hexo-and-github-page
 http://caitiao.huitailang.pub/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/
 http://caitiao.huitailang.pub/2023/10/25/pod-zi-yuan-dui-xiang-yaml-xiang-jie/
 http://caitiao.huitailang.pub/2023/10/25/service-zi-yuan-dui-xiang-yaml-xiang-jie/
-http://caitiao.huitailang.pub/2024/06/11/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/
+http://caitiao.huitailang.pub/2024/06/12/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/
 http://caitiao.huitailang.pub/2023/12/07/iterm2-pei-zhi-zhi-nan/
 http://caitiao.huitailang.pub/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/
 http://caitiao.huitailang.pub/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/
-http://caitiao.huitailang.pub/2023/11/06/kubectl-chang-yong-ming-ling/
-http://caitiao.huitailang.pub/2023/10/23/ls-operation-not-permitted/
-http://caitiao.huitailang.pub/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/
-http://caitiao.huitailang.pub/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/
-http://caitiao.huitailang.pub/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/
 http://caitiao.huitailang.pub/
 http://caitiao.huitailang.pub/tags/VS-Code/
 http://caitiao.huitailang.pub/tags/Hexo/
