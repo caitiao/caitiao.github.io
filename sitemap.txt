@@ -1,4 +1,4 @@
-http://caitiao.huitailang.pub/2024/07/22/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/
+http://caitiao.huitailang.pub/2024/07/23/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/
 http://caitiao.huitailang.pub/2023/12/07/iterm2-pei-zhi-zhi-nan/
 http://caitiao.huitailang.pub/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/
 http://caitiao.huitailang.pub/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/
