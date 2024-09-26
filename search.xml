@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2024/09/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2024/09/26/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
@@ -155,6 +155,30 @@
       </tags>
   </entry>
   <entry>
+    <title>kubectl常用命令</title>
+    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
+    <content><![CDATA[<p>kubectl常用命令</p>
+<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
+<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
+<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
+<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>kubectl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -185,30 +209,6 @@
       </categories>
       <tags>
         <tag>k8s</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kubectl常用命令</title>
-    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
-    <content><![CDATA[<p>kubectl常用命令</p>
-<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
-<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
-<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
-<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>kubectl</tag>
       </tags>
   </entry>
   <entry>
@@ -372,6 +372,19 @@
       </tags>
   </entry>
   <entry>
+    <title>根据PID过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用脚本</category>
+      </categories>
+      <tags>
+        <tag>shell脚本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>应用现代化</title>
     <url>/2023/10/31/ying-yong-xian-dai-hua/</url>
     <content><![CDATA[<p>什么是应用现代化？对老旧软件进行更新使之采用更新的计算方式，包括更新的语言，框架和基础设施平台，就相当于对旧房进行翻新。通过新技术来更新改造及现代化应用的同时，来延长应用的生命周期。</p>
@@ -401,19 +414,6 @@
       <tags>
         <tag>现代化</tag>
         <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>根据PID过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用脚本</category>
-      </categories>
-      <tags>
-        <tag>shell脚本</tag>
       </tags>
   </entry>
   <entry>
