@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2024/10/03/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2024/10/04/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
@@ -137,24 +137,6 @@
       </tags>
   </entry>
   <entry>
-    <title>k8s如何停止服务</title>
-    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
-    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
-<ol>
-<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
-<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>service</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -185,6 +167,24 @@
       </categories>
       <tags>
         <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>k8s如何停止服务</title>
+    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
+    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
+<ol>
+<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
+<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>service</tag>
       </tags>
   </entry>
   <entry>
