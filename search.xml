@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2025/01/04/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2025/01/05/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
@@ -350,6 +350,28 @@
       </tags>
   </entry>
   <entry>
+    <title>常用Hexo命令</title>
+    <url>/2023/10/17/chang-yong-hexo-ming-ling/</url>
+    <content><![CDATA[<p>hexo常用命令：<a href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
+<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个网站"><a href="#新建一个网站" class="headerlink" title="新建一个网站"></a>新建一个网站</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init #默认在当前目录创建</span><br><span class="line">hexo init [folder] #指定网站目录</span><br></pre></td></tr></table></figure>
+<h4 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="发布草稿"><a href="#发布草稿" class="headerlink" title="发布草稿"></a>发布草稿</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="清除已生成的静态文件及缓存文件-db-json"><a href="#清除已生成的静态文件及缓存文件-db-json" class="headerlink" title="清除已生成的静态文件及缓存文件 (db.json)"></a>清除已生成的静态文件及缓存文件 (db.json)</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h4 id="强制重新生成静态文件"><a href="#强制重新生成静态文件" class="headerlink" title="强制重新生成静态文件"></a>强制重新生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -f</span><br></pre></td></tr></table></figure>
+<h4 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="启动网站服务"><a href="#启动网站服务" class="headerlink" title="启动网站服务"></a>启动网站服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="显示-Hexo-版本"><a href="#显示-Hexo-版本" class="headerlink" title="显示 Hexo 版本"></a>显示 Hexo 版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>应用现代化</title>
     <url>/2023/10/31/ying-yong-xian-dai-hua/</url>
     <content><![CDATA[<p>什么是应用现代化？对老旧软件进行更新使之采用更新的计算方式，包括更新的语言，框架和基础设施平台，就相当于对旧房进行翻新。通过新技术来更新改造及现代化应用的同时，来延长应用的生命周期。</p>
@@ -379,28 +401,6 @@
       <tags>
         <tag>现代化</tag>
         <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用Hexo命令</title>
-    <url>/2023/10/17/chang-yong-hexo-ming-ling/</url>
-    <content><![CDATA[<p>hexo常用命令：<a href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
-<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h4 id="新建一个网站"><a href="#新建一个网站" class="headerlink" title="新建一个网站"></a>新建一个网站</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init #默认在当前目录创建</span><br><span class="line">hexo init [folder] #指定网站目录</span><br></pre></td></tr></table></figure>
-<h4 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="发布草稿"><a href="#发布草稿" class="headerlink" title="发布草稿"></a>发布草稿</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="清除已生成的静态文件及缓存文件-db-json"><a href="#清除已生成的静态文件及缓存文件-db-json" class="headerlink" title="清除已生成的静态文件及缓存文件 (db.json)"></a>清除已生成的静态文件及缓存文件 (db.json)</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<h4 id="强制重新生成静态文件"><a href="#强制重新生成静态文件" class="headerlink" title="强制重新生成静态文件"></a>强制重新生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -f</span><br></pre></td></tr></table></figure>
-<h4 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="启动网站服务"><a href="#启动网站服务" class="headerlink" title="启动网站服务"></a>启动网站服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<h4 id="显示-Hexo-版本"><a href="#显示-Hexo-版本" class="headerlink" title="显示 Hexo 版本"></a>显示 Hexo 版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
