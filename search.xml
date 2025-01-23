@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Deployment资源对象yaml详解</title>
-    <url>/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
-    <content><![CDATA[<p>Deployment资源对象yaml详解</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata: ----------------------------------------#元数据</span><br><span class="line">  annotations: -------------------------------------#注释信息</span><br><span class="line">    deployment.kubernetes.io/revision: &#x27;1&#x27;</span><br><span class="line">    k8s.kuboard.cn/ingress: &#x27;false&#x27;</span><br><span class="line">    k8s.kuboard.cn/service: NodePort</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels:-------------------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;            </span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud-----------------------------------#名称</span><br><span class="line">  namespace: nextcloud------------------------------#命名空间 </span><br><span class="line">spec:-----------------------------------------------#定义容器模板，该模板可以包含多个容器 </span><br><span class="line">  replicas: 3---------------------------------------#副本数量</span><br><span class="line">  selector:-----------------------------------------#标签选择器</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">      k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  strategy:-----------------------------------------#滚动升级策略</span><br><span class="line">    type: RollingUpdate-----------------------------#类型</span><br><span class="line">    rollingUpdate:----------------------------------#由于replicas为3,则整个升级,pod个数在2-4个之间    </span><br><span class="line">      maxSurge: 25%---------------------------------#滚动升级时会先启动25%pod  </span><br><span class="line">      maxUnavailable: 25%---------------------------#滚动升级时允许的最大Unavailable的pod个数</span><br><span class="line">  template:                     #镜像模板                   </span><br><span class="line">    metadata: ------------------------------------#元数据</span><br><span class="line">      labels:---------------------------------------#标签</span><br><span class="line">        k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">        k8s.kuboard.cn/name: nextcloud</span><br><span class="line">    spec: ------------------------------------------#定义容器模板，该模板可以包含多个容器</span><br><span class="line">      containers: ----------------------------------#容器信息</span><br><span class="line">    - name: nextcloud --------------------------#容器名称</span><br><span class="line">          image: &#x27;172.16.20.100/library/nextcloud:yan&#x27; #镜像名称</span><br><span class="line">          imagePullPolicy: Always ------------------#镜像下载策略 </span><br><span class="line">          ports:</span><br><span class="line">            - name: http</span><br><span class="line">              containerPort: 80</span><br><span class="line">              protocol: TCP</span><br><span class="line">          env</span><br><span class="line">          resources: -------------------------------#CPU内存限制</span><br><span class="line">        limits: --------------------------------#限制cpu内存                      </span><br><span class="line">              cpu: 200m</span><br><span class="line">              memory: 200m</span><br><span class="line">            requests: ------------------------------#请求cpu内存</span><br><span class="line">              cpu: 100m</span><br><span class="line">              memory: 100m</span><br><span class="line">          securityContext: -------------------------#安全设定</span><br><span class="line">            privileged: true -----------------------#开启享有特权</span><br><span class="line">          volumeMounts: ----------------------------#挂载volumes中定义的磁盘</span><br><span class="line">        - name: html ---------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/www/html </span><br><span class="line">            - name: session ------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/lib/php/session       </span><br><span class="line">      volumes:  ------------------------------------#在该pod上定义共享存储卷列表</span><br><span class="line">        - name: html -------------------------------#共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">          persistentVolumeClaim: -------------------#volumes类型为pvc</span><br><span class="line">            claimName: html  -----------------------#关联pvc名称</span><br><span class="line">        - name: session</span><br><span class="line">          persistentVolumeClaim:</span><br><span class="line">            claimName: session        </span><br><span class="line">      restartPolicy: Always ------------------------#Pod的重启策略 </span><br><span class="line">                              #Always表示一旦不管以何种方式终止运行，kubelet都将重启，</span><br><span class="line">                              #OnFailure表示只有Pod以非0退出码退出才重启，</span><br><span class="line">                              #Nerver表示不再重启该Pod</span><br><span class="line">      schedulerName: default-scheduler -------------#指定pod调度到节点</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>yaml</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用VS Code，Hexo与GitHub Pages写博客</title>
     <url>/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</url>
     <content><![CDATA[<span id="more"></span>
@@ -57,6 +41,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Deployment资源对象yaml详解</title>
+    <url>/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
+    <content><![CDATA[<p>Deployment资源对象yaml详解</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata: ----------------------------------------#元数据</span><br><span class="line">  annotations: -------------------------------------#注释信息</span><br><span class="line">    deployment.kubernetes.io/revision: &#x27;1&#x27;</span><br><span class="line">    k8s.kuboard.cn/ingress: &#x27;false&#x27;</span><br><span class="line">    k8s.kuboard.cn/service: NodePort</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels:-------------------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;            </span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud-----------------------------------#名称</span><br><span class="line">  namespace: nextcloud------------------------------#命名空间 </span><br><span class="line">spec:-----------------------------------------------#定义容器模板，该模板可以包含多个容器 </span><br><span class="line">  replicas: 3---------------------------------------#副本数量</span><br><span class="line">  selector:-----------------------------------------#标签选择器</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">      k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  strategy:-----------------------------------------#滚动升级策略</span><br><span class="line">    type: RollingUpdate-----------------------------#类型</span><br><span class="line">    rollingUpdate:----------------------------------#由于replicas为3,则整个升级,pod个数在2-4个之间    </span><br><span class="line">      maxSurge: 25%---------------------------------#滚动升级时会先启动25%pod  </span><br><span class="line">      maxUnavailable: 25%---------------------------#滚动升级时允许的最大Unavailable的pod个数</span><br><span class="line">  template:                     #镜像模板                   </span><br><span class="line">    metadata: ------------------------------------#元数据</span><br><span class="line">      labels:---------------------------------------#标签</span><br><span class="line">        k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">        k8s.kuboard.cn/name: nextcloud</span><br><span class="line">    spec: ------------------------------------------#定义容器模板，该模板可以包含多个容器</span><br><span class="line">      containers: ----------------------------------#容器信息</span><br><span class="line">    - name: nextcloud --------------------------#容器名称</span><br><span class="line">          image: &#x27;172.16.20.100/library/nextcloud:yan&#x27; #镜像名称</span><br><span class="line">          imagePullPolicy: Always ------------------#镜像下载策略 </span><br><span class="line">          ports:</span><br><span class="line">            - name: http</span><br><span class="line">              containerPort: 80</span><br><span class="line">              protocol: TCP</span><br><span class="line">          env</span><br><span class="line">          resources: -------------------------------#CPU内存限制</span><br><span class="line">        limits: --------------------------------#限制cpu内存                      </span><br><span class="line">              cpu: 200m</span><br><span class="line">              memory: 200m</span><br><span class="line">            requests: ------------------------------#请求cpu内存</span><br><span class="line">              cpu: 100m</span><br><span class="line">              memory: 100m</span><br><span class="line">          securityContext: -------------------------#安全设定</span><br><span class="line">            privileged: true -----------------------#开启享有特权</span><br><span class="line">          volumeMounts: ----------------------------#挂载volumes中定义的磁盘</span><br><span class="line">        - name: html ---------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/www/html </span><br><span class="line">            - name: session ------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/lib/php/session       </span><br><span class="line">      volumes:  ------------------------------------#在该pod上定义共享存储卷列表</span><br><span class="line">        - name: html -------------------------------#共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">          persistentVolumeClaim: -------------------#volumes类型为pvc</span><br><span class="line">            claimName: html  -----------------------#关联pvc名称</span><br><span class="line">        - name: session</span><br><span class="line">          persistentVolumeClaim:</span><br><span class="line">            claimName: session        </span><br><span class="line">      restartPolicy: Always ------------------------#Pod的重启策略 </span><br><span class="line">                              #Always表示一旦不管以何种方式终止运行，kubelet都将重启，</span><br><span class="line">                              #OnFailure表示只有Pod以非0退出码退出才重启，</span><br><span class="line">                              #Nerver表示不再重启该Pod</span><br><span class="line">      schedulerName: default-scheduler -------------#指定pod调度到节点</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>yaml</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pod资源对象yaml详解</title>
     <url>/2023/10/25/pod-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
     <content><![CDATA[<p>Pod资源对象yaml详解</p>
@@ -73,16 +73,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/01/22/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
-    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
-<p>命令：</p>
-<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
-<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
-<p>这样就可以批量删除了！</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Service资源对象yaml详解</title>
     <url>/2023/10/25/service-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
     <content><![CDATA[<p>Service资源对象yaml详解</p>
@@ -97,6 +87,16 @@
         <tag>yaml</tag>
         <tag>service</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/01/23/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
+<p>命令：</p>
+<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
+<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
+<p>这样就可以批量删除了！</p>
+]]></content>
   </entry>
   <entry>
     <title>iterm2配置123</title>
@@ -259,31 +259,6 @@
       </tags>
   </entry>
   <entry>
-    <title>常用docker命令</title>
-    <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
-    <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
-<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
-<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
-<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
-<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
-<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
-<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>容器技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用ifconfig查看本机ip</title>
     <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
     <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
@@ -324,6 +299,31 @@
       <tags>
         <tag>nmap</tag>
         <tag>网段扫描</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用docker命令</title>
+    <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
+    <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
+<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
+<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器技术</tag>
       </tags>
   </entry>
   <entry>
