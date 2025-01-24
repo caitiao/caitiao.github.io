@@ -73,6 +73,16 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2025/01/24/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
+<p>命令：</p>
+<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
+<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
+<p>这样就可以批量删除了！</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Service资源对象yaml详解</title>
     <url>/2023/10/25/service-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
     <content><![CDATA[<p>Service资源对象yaml详解</p>
@@ -87,16 +97,6 @@
         <tag>yaml</tag>
         <tag>service</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2025/01/23/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
-    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
-<p>命令：</p>
-<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
-<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
-<p>这样就可以批量删除了！</p>
-]]></content>
   </entry>
   <entry>
     <title>iterm2配置123</title>

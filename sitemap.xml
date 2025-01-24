@@ -2,54 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://caitiao.huitailang.pub/about/index.html</loc>
-    
-    <lastmod>2025-01-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</loc>
-    
-    <lastmod>2025-01-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</loc>
-    
-    <lastmod>2025-01-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/11/06/kubectl-chang-yong-ming-ling/</loc>
-    
-    <lastmod>2025-01-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2023/10/23/ls-operation-not-permitted/</loc>
-    
-    <lastmod>2025-01-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://caitiao.huitailang.pub/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -58,7 +13,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -67,7 +22,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -76,7 +31,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/17/chang-yong-docker-ming-ling/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -85,7 +40,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/23/chang-yong-git-ming-ling/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -94,7 +49,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/17/chang-yong-hexo-ming-ling/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -103,7 +58,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/31/ying-yong-xian-dai-hua/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -112,7 +67,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -121,7 +76,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -130,7 +85,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/31/xian-dai-ying-yong-cheng-xu/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -139,7 +94,16 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/about/index.html</loc>
+    
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -148,7 +112,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -157,7 +121,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -166,7 +130,16 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/25/pod-zi-yuan-dui-xiang-yaml-xiang-jie/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2025/01/24/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</loc>
+    
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -175,16 +148,7 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/10/25/service-zi-yuan-dui-xiang-yaml-xiang-jie/</loc>
     
-    <lastmod>2025-01-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.huitailang.pub/2025/01/23/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</loc>
-    
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -193,7 +157,43 @@
   <url>
     <loc>http://caitiao.huitailang.pub/2023/12/07/iterm2-pei-zhi-zhi-nan/</loc>
     
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</loc>
+    
+    <lastmod>2025-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</loc>
+    
+    <lastmod>2025-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/11/06/kubectl-chang-yong-ming-ling/</loc>
+    
+    <lastmod>2025-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.huitailang.pub/2023/10/23/ls-operation-not-permitted/</loc>
+    
+    <lastmod>2025-01-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -202,7 +202,7 @@
 
   <url>
     <loc>http://caitiao.huitailang.pub/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -210,203 +210,203 @@
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/VS-Code/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/Hexo/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/GitHub-Pages/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/k8s/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/deployment/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/yaml/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/pod/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/service/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/iterm2/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/kubectl/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/ZSH/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/Terminal/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/nginx/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/ifconfig/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/linux/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/nmap/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/%E7%BD%91%E6%AE%B5%E6%89%AB%E6%8F%8F/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/docker/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/git/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/%E7%8E%B0%E4%BB%A3%E5%8C%96/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/shell%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/%E5%A4%9A%E4%BA%91/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/%E5%BC%B9%E6%80%A7/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/mysql/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/PersistentVolume/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/tags/PersistentVolumeClaim/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -415,49 +415,49 @@
   
   <url>
     <loc>http://caitiao.huitailang.pub/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/categories/%E6%8A%80%E6%9C%AF/k8s/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/categories/%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/categories/%E5%BA%94%E7%94%A8%E7%A0%94%E5%8F%91/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://caitiao.huitailang.pub/categories/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
