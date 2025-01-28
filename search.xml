@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2025/01/27/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2025/01/28/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
@@ -259,25 +259,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用nmap扫描网段有多少主机在线</title>
-    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
-    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
-<ol>
-<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
-<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
-<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>nmap</tag>
-        <tag>网段扫描</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用ifconfig查看本机ip</title>
     <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
     <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
@@ -299,6 +280,25 @@
       <tags>
         <tag>ifconfig</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用nmap扫描网段有多少主机在线</title>
+    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
+    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
+<ol>
+<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
+<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
+<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>nmap</tag>
+        <tag>网段扫描</tag>
       </tags>
   </entry>
   <entry>
@@ -372,6 +372,19 @@
       </tags>
   </entry>
   <entry>
+    <title>根据PID过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用脚本</category>
+      </categories>
+      <tags>
+        <tag>shell脚本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>应用现代化</title>
     <url>/2023/10/31/ying-yong-xian-dai-hua/</url>
     <content><![CDATA[<p>什么是应用现代化？对老旧软件进行更新使之采用更新的计算方式，包括更新的语言，框架和基础设施平台，就相当于对旧房进行翻新。通过新技术来更新改造及现代化应用的同时，来延长应用的生命周期。</p>
@@ -401,19 +414,6 @@
       <tags>
         <tag>现代化</tag>
         <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>根据PID过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用脚本</category>
-      </categories>
-      <tags>
-        <tag>shell脚本</tag>
       </tags>
   </entry>
   <entry>
