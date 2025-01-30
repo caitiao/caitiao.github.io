@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2025/01/29/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2025/01/30/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
@@ -188,6 +188,29 @@
       </tags>
   </entry>
   <entry>
+    <title>ls Operation not permitted</title>
+    <url>/2023/10/23/ls-operation-not-permitted/</url>
+    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
+<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
+<ol>
+<li>单击菜单栏上的苹果图标</li>
+<li>选择系统偏好设置</li>
+<li>点击安全和隐私，</li>
+<li>选择文件和文件夹，</li>
+<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
+<li>点击退出并重新打开</li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题解决</category>
+      </categories>
+      <tags>
+        <tag>ZSH</tag>
+        <tag>Terminal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>kubectl常用命令</title>
     <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
     <content><![CDATA[<p>kubectl常用命令</p>
@@ -209,29 +232,6 @@
       <tags>
         <tag>k8s</tag>
         <tag>kubectl</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ls Operation not permitted</title>
-    <url>/2023/10/23/ls-operation-not-permitted/</url>
-    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
-<ol>
-<li>单击菜单栏上的苹果图标</li>
-<li>选择系统偏好设置</li>
-<li>点击安全和隐私，</li>
-<li>选择文件和文件夹，</li>
-<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
-<li>点击退出并重新打开</li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题解决</category>
-      </categories>
-      <tags>
-        <tag>ZSH</tag>
-        <tag>Terminal</tag>
       </tags>
   </entry>
   <entry>
@@ -430,6 +430,30 @@
       </tags>
   </entry>
   <entry>
+    <title>运行一个单实例有状态应用</title>
+    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
+    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
+<ol>
+<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
+<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
+<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>mysql</tag>
+        <tag>PersistentVolume</tag>
+        <tag>PersistentVolumeClaim</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>现代应用程序</title>
     <url>/2023/10/31/xian-dai-ying-yong-cheng-xu/</url>
     <content><![CDATA[<p>现代应用程序(Modern Application)是通过采用云原生体系结构来快速响应事件，满足客户多变需求的一种方法，它的构建采用了容器化，松散耦合的微服务架构模式，Serverless运行模式和DevOps自动化软件交付流程。</p>
@@ -453,30 +477,6 @@
         <tag>微服务</tag>
         <tag>多云</tag>
         <tag>弹性</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>运行一个单实例有状态应用</title>
-    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
-    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
-<ol>
-<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
-<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
-<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>mysql</tag>
-        <tag>PersistentVolume</tag>
-        <tag>PersistentVolumeClaim</tag>
       </tags>
   </entry>
 </search>
