@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2025/02/06/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2025/02/07/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
@@ -137,24 +137,6 @@
       </tags>
   </entry>
   <entry>
-    <title>k8s如何停止服务</title>
-    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
-    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
-<ol>
-<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
-<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>service</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -185,6 +167,24 @@
       </categories>
       <tags>
         <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>k8s如何停止服务</title>
+    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
+    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
+<ol>
+<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
+<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>service</tag>
       </tags>
   </entry>
   <entry>
@@ -235,30 +235,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用Deployment运行一个无状态应用</title>
-    <url>/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</url>
-    <content><![CDATA[<ol>
-<li>创建一个YAML配置文件 nginx-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 2 # 告知 Deployment 运行 2 个与该模板匹配的 Pod</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.14.2</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
-<li>提交Deployment配置到k8s集群<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment.yaml</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment nginx-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=nginx #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
-<li>升级nginx版本1.14.2-&gt;1.16.1,创建nginx-deployment-update.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 2</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.16.1 # 将 nginx 版本从 1.14.2 更新为 1.16.1</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
-<li>执行nginx更新<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment-update.yaml</span><br></pre></td></tr></table></figure></li>
-<li>通过增加副本数来扩容应用,创建nginx-deployment-scale.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 4 # 将副本数从 2 更新为 4</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.16.1</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
-<li>执行扩容动作<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment-scale.yaml</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否扩容成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -l app=nginx #查看Pod列表，2-&gt;4</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用ifconfig查看本机ip</title>
     <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
     <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
@@ -280,6 +256,30 @@
       <tags>
         <tag>ifconfig</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Deployment运行一个无状态应用</title>
+    <url>/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</url>
+    <content><![CDATA[<ol>
+<li>创建一个YAML配置文件 nginx-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 2 # 告知 Deployment 运行 2 个与该模板匹配的 Pod</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.14.2</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
+<li>提交Deployment配置到k8s集群<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment.yaml</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment nginx-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=nginx #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
+<li>升级nginx版本1.14.2-&gt;1.16.1,创建nginx-deployment-update.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 2</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.16.1 # 将 nginx 版本从 1.14.2 更新为 1.16.1</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
+<li>执行nginx更新<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment-update.yaml</span><br></pre></td></tr></table></figure></li>
+<li>通过增加副本数来扩容应用,创建nginx-deployment-scale.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 4 # 将副本数从 2 更新为 4</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.16.1</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
+<li>执行扩容动作<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment-scale.yaml</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否扩容成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -l app=nginx #查看Pod列表，2-&gt;4</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -372,32 +372,6 @@
       </tags>
   </entry>
   <entry>
-    <title>根据PID过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用脚本</category>
-      </categories>
-      <tags>
-        <tag>shell脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>根据进程名过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用脚本</category>
-      </categories>
-      <tags>
-        <tag>shell脚本</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>应用现代化</title>
     <url>/2023/10/31/ying-yong-xian-dai-hua/</url>
     <content><![CDATA[<p>什么是应用现代化？对老旧软件进行更新使之采用更新的计算方式，包括更新的语言，框架和基础设施平台，就相当于对旧房进行翻新。通过新技术来更新改造及现代化应用的同时，来延长应用的生命周期。</p>
@@ -430,27 +404,29 @@
       </tags>
   </entry>
   <entry>
-    <title>运行一个单实例有状态应用</title>
-    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
-    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
-<ol>
-<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
-<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
-<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
-</ol>
+    <title>根据PID过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>技术</category>
-        <category>k8s</category>
+        <category>常用脚本</category>
       </categories>
       <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>mysql</tag>
-        <tag>PersistentVolume</tag>
-        <tag>PersistentVolumeClaim</tag>
+        <tag>shell脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>根据进程名过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用脚本</category>
+      </categories>
+      <tags>
+        <tag>shell脚本</tag>
       </tags>
   </entry>
   <entry>
@@ -477,6 +453,30 @@
         <tag>微服务</tag>
         <tag>多云</tag>
         <tag>弹性</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>运行一个单实例有状态应用</title>
+    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
+    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
+<ol>
+<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
+<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
+<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>mysql</tag>
+        <tag>PersistentVolume</tag>
+        <tag>PersistentVolumeClaim</tag>
       </tags>
   </entry>
 </search>
