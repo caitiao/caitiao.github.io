@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2025/02/12/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2025/02/13/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
@@ -212,6 +212,29 @@
       </tags>
   </entry>
   <entry>
+    <title>ls Operation not permitted</title>
+    <url>/2023/10/23/ls-operation-not-permitted/</url>
+    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
+<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
+<ol>
+<li>单击菜单栏上的苹果图标</li>
+<li>选择系统偏好设置</li>
+<li>点击安全和隐私，</li>
+<li>选择文件和文件夹，</li>
+<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
+<li>点击退出并重新打开</li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题解决</category>
+      </categories>
+      <tags>
+        <tag>ZSH</tag>
+        <tag>Terminal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Deployment运行一个无状态应用</title>
     <url>/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</url>
     <content><![CDATA[<ol>
@@ -233,29 +256,6 @@
         <tag>k8s</tag>
         <tag>deployment</tag>
         <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ls Operation not permitted</title>
-    <url>/2023/10/23/ls-operation-not-permitted/</url>
-    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
-<ol>
-<li>单击菜单栏上的苹果图标</li>
-<li>选择系统偏好设置</li>
-<li>点击安全和隐私，</li>
-<li>选择文件和文件夹，</li>
-<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
-<li>点击退出并重新打开</li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题解决</category>
-      </categories>
-      <tags>
-        <tag>ZSH</tag>
-        <tag>Terminal</tag>
       </tags>
   </entry>
   <entry>
