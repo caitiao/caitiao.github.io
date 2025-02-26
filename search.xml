@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2025/02/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2025/02/26/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
@@ -235,30 +235,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用Deployment运行一个无状态应用</title>
-    <url>/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</url>
-    <content><![CDATA[<ol>
-<li>创建一个YAML配置文件 nginx-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 2 # 告知 Deployment 运行 2 个与该模板匹配的 Pod</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.14.2</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
-<li>提交Deployment配置到k8s集群<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment.yaml</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment nginx-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=nginx #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
-<li>升级nginx版本1.14.2-&gt;1.16.1,创建nginx-deployment-update.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 2</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.16.1 # 将 nginx 版本从 1.14.2 更新为 1.16.1</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
-<li>执行nginx更新<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment-update.yaml</span><br></pre></td></tr></table></figure></li>
-<li>通过增加副本数来扩容应用,创建nginx-deployment-scale.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 4 # 将副本数从 2 更新为 4</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.16.1</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
-<li>执行扩容动作<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment-scale.yaml</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否扩容成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -l app=nginx #查看Pod列表，2-&gt;4</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用ifconfig查看本机ip</title>
     <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
     <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
@@ -280,6 +256,30 @@
       <tags>
         <tag>ifconfig</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Deployment运行一个无状态应用</title>
+    <url>/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</url>
+    <content><![CDATA[<ol>
+<li>创建一个YAML配置文件 nginx-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 2 # 告知 Deployment 运行 2 个与该模板匹配的 Pod</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.14.2</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
+<li>提交Deployment配置到k8s集群<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment.yaml</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment nginx-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=nginx #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
+<li>升级nginx版本1.14.2-&gt;1.16.1,创建nginx-deployment-update.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 2</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.16.1 # 将 nginx 版本从 1.14.2 更新为 1.16.1</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
+<li>执行nginx更新<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment-update.yaml</span><br></pre></td></tr></table></figure></li>
+<li>通过增加副本数来扩容应用,创建nginx-deployment-scale.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx</span><br><span class="line">  replicas: 4 # 将副本数从 2 更新为 4</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: nginx</span><br><span class="line">        image: nginx:1.16.1</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 80</span><br></pre></td></tr></table></figure></li>
+<li>执行扩容动作<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-deployment-scale.yaml</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否扩容成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -l app=nginx #查看Pod列表，2-&gt;4</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
