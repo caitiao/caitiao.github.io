@@ -90,13 +90,31 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2025/02/28/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <url>/2025/03/01/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
 <p>命令：</p>
 <p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
 <p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
 <p>这样就可以批量删除了！</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>k8s如何停止服务</title>
+    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
+    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
+<ol>
+<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
+<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>service</tag>
+      </tags>
   </entry>
   <entry>
     <title>iterm2配置123</title>
@@ -134,24 +152,6 @@
       </categories>
       <tags>
         <tag>iterm2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>k8s如何停止服务</title>
-    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
-    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
-<ol>
-<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
-<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>service</tag>
       </tags>
   </entry>
   <entry>
