@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://caitiao.okyun.fun/2023/10/31/xian-dai-ying-yong-cheng-xu/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://caitiao.okyun.fun/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</loc>
     
     <lastmod>2025-11-27</lastmod>
@@ -29,79 +20,7 @@
   </url>
   
   <url>
-    <loc>http://caitiao.okyun.fun/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/2023/10/23/chang-yong-git-ming-ling/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/2023/10/17/chang-yong-docker-ming-ling/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/2023/10/17/chang-yong-hexo-ming-ling/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/2023/10/31/ying-yong-xian-dai-hua/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</loc>
-    
-    <lastmod>2025-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</loc>
+    <loc>http://caitiao.okyun.fun/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</loc>
     
     <lastmod>2025-11-27</lastmod>
     
@@ -137,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://caitiao.okyun.fun/2025/11/27/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</loc>
+    <loc>http://caitiao.okyun.fun/2023/10/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</loc>
     
     <lastmod>2025-11-27</lastmod>
     
@@ -191,7 +110,88 @@
   </url>
   
   <url>
-    <loc>http://caitiao.okyun.fun/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</loc>
+    <loc>http://caitiao.okyun.fun/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/10/17/chang-yong-docker-ming-ling/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/10/23/chang-yong-git-ming-ling/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/10/17/chang-yong-hexo-ming-ling/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/10/31/ying-yong-xian-dai-hua/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</loc>
+    
+    <lastmod>2025-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/2023/10/31/xian-dai-ying-yong-cheng-xu/</loc>
     
     <lastmod>2025-11-27</lastmod>
     
@@ -259,6 +259,20 @@
   
   <url>
     <loc>http://caitiao.okyun.fun/tags/service/</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/tags/docker/</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://caitiao.okyun.fun/tags/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -342,20 +356,6 @@
   </url>
   
   <url>
-    <loc>http://caitiao.okyun.fun/tags/docker/</loc>
-    <lastmod>2025-11-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/tags/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-11-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://caitiao.okyun.fun/tags/%E7%8E%B0%E4%BB%A3%E5%8C%96/</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -421,6 +421,13 @@
   </url>
   
   <url>
+    <loc>http://caitiao.okyun.fun/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://caitiao.okyun.fun/categories/%E6%8A%80%E6%9C%AF/k8s/</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -436,13 +443,6 @@
   
   <url>
     <loc>http://caitiao.okyun.fun/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
-    <lastmod>2025-11-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://caitiao.okyun.fun/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
