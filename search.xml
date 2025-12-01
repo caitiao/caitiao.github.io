@@ -219,29 +219,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ls Operation not permitted</title>
-    <url>/2023/10/23/ls-operation-not-permitted/</url>
-    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
-<ol>
-<li>单击菜单栏上的苹果图标</li>
-<li>选择系统偏好设置</li>
-<li>点击安全和隐私，</li>
-<li>选择文件和文件夹，</li>
-<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
-<li>点击退出并重新打开</li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题解决</category>
-      </categories>
-      <tags>
-        <tag>ZSH</tag>
-        <tag>Terminal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用Deployment运行一个无状态应用</title>
     <url>/2023/11/15/shi-yong-deployment-yun-xing-yi-ge-wu-zhuang-tai-ying-yong/</url>
     <content><![CDATA[<ol>
@@ -266,46 +243,26 @@
       </tags>
   </entry>
   <entry>
-    <title>使用ifconfig查看本机ip</title>
-    <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
-    <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0</span><br><span class="line">eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.8.21  netmask 255.255.240.0  broadcast 192.168.8.1</span><br><span class="line">        ether 00:16:3e:0c:ec:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 215013189  bytes 59080762287 (55.0 GiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 125960779  bytes 124345275246 (115.8 GiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
-
-<p>第二行的第一个ip就是本机ip<code>192.168.8.21</code></p>
-<p>在MacOS中稍有不同，命令为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ifconfig en0</span><br></pre></td></tr></table></figure>
-<p>接下来，我们使用<code>grep</code> <code>awk</code>来进行精确获取</p>
-<h4 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27; | awk -v FS=&quot;:&quot; &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig en0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>ifconfig</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用nmap扫描网段有多少主机在线</title>
-    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
-    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
+    <title>ls Operation not permitted</title>
+    <url>/2023/10/23/ls-operation-not-permitted/</url>
+    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
+<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
 <ol>
-<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
-<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
-<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+<li>单击菜单栏上的苹果图标</li>
+<li>选择系统偏好设置</li>
+<li>点击安全和隐私，</li>
+<li>选择文件和文件夹，</li>
+<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
+<li>点击退出并重新打开</li>
 </ol>
 ]]></content>
       <categories>
-        <category>常用命令</category>
+        <category>问题解决</category>
       </categories>
       <tags>
-        <tag>nmap</tag>
-        <tag>网段扫描</tag>
+        <tag>ZSH</tag>
+        <tag>Terminal</tag>
       </tags>
   </entry>
   <entry>
@@ -334,26 +291,46 @@
       </tags>
   </entry>
   <entry>
-    <title>常用Git命令</title>
-    <url>/2023/10/23/chang-yong-git-ming-ling/</url>
-    <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
-<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
-<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
-<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
-<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
-<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
-<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
-<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
-<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+    <title>使用nmap扫描网段有多少主机在线</title>
+    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
+    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
+<ol>
+<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
+<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
+<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
         <category>常用命令</category>
       </categories>
       <tags>
-        <tag>git</tag>
-        <tag>版本管理</tag>
+        <tag>nmap</tag>
+        <tag>网段扫描</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用ifconfig查看本机ip</title>
+    <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
+    <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0</span><br><span class="line">eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.8.21  netmask 255.255.240.0  broadcast 192.168.8.1</span><br><span class="line">        ether 00:16:3e:0c:ec:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 215013189  bytes 59080762287 (55.0 GiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 125960779  bytes 124345275246 (115.8 GiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+
+<p>第二行的第一个ip就是本机ip<code>192.168.8.21</code></p>
+<p>在MacOS中稍有不同，命令为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ifconfig en0</span><br></pre></td></tr></table></figure>
+<p>接下来，我们使用<code>grep</code> <code>awk</code>来进行精确获取</p>
+<h4 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27; | awk -v FS=&quot;:&quot; &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig en0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>ifconfig</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -376,6 +353,29 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用Git命令</title>
+    <url>/2023/10/23/chang-yong-git-ming-ling/</url>
+    <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
+<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
+<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
+<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
+<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
+<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
+<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>版本管理</tag>
       </tags>
   </entry>
   <entry>
@@ -411,6 +411,19 @@
       </tags>
   </entry>
   <entry>
+    <title>根据进程名过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用脚本</category>
+      </categories>
+      <tags>
+        <tag>shell脚本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>根据PID过滤进程信息</title>
     <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
     <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
@@ -424,16 +437,27 @@
       </tags>
   </entry>
   <entry>
-    <title>根据进程名过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+    <title>运行一个单实例有状态应用</title>
+    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
+    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
+<ol>
+<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
+<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
+<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
-        <category>常用脚本</category>
+        <category>技术</category>
+        <category>k8s</category>
       </categories>
       <tags>
-        <tag>shell脚本</tag>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>mysql</tag>
+        <tag>PersistentVolume</tag>
+        <tag>PersistentVolumeClaim</tag>
       </tags>
   </entry>
   <entry>
@@ -460,30 +484,6 @@
         <tag>微服务</tag>
         <tag>多云</tag>
         <tag>弹性</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>运行一个单实例有状态应用</title>
-    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
-    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
-<ol>
-<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
-<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
-<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>mysql</tag>
-        <tag>PersistentVolume</tag>
-        <tag>PersistentVolumeClaim</tag>
       </tags>
   </entry>
 </search>
