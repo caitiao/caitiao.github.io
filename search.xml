@@ -162,6 +162,30 @@
       </tags>
   </entry>
   <entry>
+    <title>kubectl常用命令</title>
+    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
+    <content><![CDATA[<p>kubectl常用命令</p>
+<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
+<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
+<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
+<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>kubectl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -192,30 +216,6 @@
       </categories>
       <tags>
         <tag>k8s</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kubectl常用命令</title>
-    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
-    <content><![CDATA[<p>kubectl常用命令</p>
-<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
-<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
-<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
-<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>kubectl</tag>
       </tags>
   </entry>
   <entry>
@@ -290,25 +290,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用nmap扫描网段有多少主机在线</title>
-    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
-    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
-<ol>
-<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
-<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
-<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>nmap</tag>
-        <tag>网段扫描</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用docker命令</title>
     <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
     <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
@@ -357,25 +338,22 @@
       </tags>
   </entry>
   <entry>
-    <title>常用Hexo命令</title>
-    <url>/2023/10/17/chang-yong-hexo-ming-ling/</url>
-    <content><![CDATA[<p>hexo常用命令：<a href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
-<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h4 id="新建一个网站"><a href="#新建一个网站" class="headerlink" title="新建一个网站"></a>新建一个网站</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init #默认在当前目录创建</span><br><span class="line">hexo init [folder] #指定网站目录</span><br></pre></td></tr></table></figure>
-<h4 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="发布草稿"><a href="#发布草稿" class="headerlink" title="发布草稿"></a>发布草稿</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="清除已生成的静态文件及缓存文件-db-json"><a href="#清除已生成的静态文件及缓存文件-db-json" class="headerlink" title="清除已生成的静态文件及缓存文件 (db.json)"></a>清除已生成的静态文件及缓存文件 (db.json)</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<h4 id="强制重新生成静态文件"><a href="#强制重新生成静态文件" class="headerlink" title="强制重新生成静态文件"></a>强制重新生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -f</span><br></pre></td></tr></table></figure>
-<h4 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="启动网站服务"><a href="#启动网站服务" class="headerlink" title="启动网站服务"></a>启动网站服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<h4 id="显示-Hexo-版本"><a href="#显示-Hexo-版本" class="headerlink" title="显示 Hexo 版本"></a>显示 Hexo 版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+    <title>使用nmap扫描网段有多少主机在线</title>
+    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
+    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
+<ol>
+<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
+<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
+<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
         <category>常用命令</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>nmap</tag>
+        <tag>网段扫描</tag>
       </tags>
   </entry>
   <entry>
@@ -408,6 +386,28 @@
       <tags>
         <tag>现代化</tag>
         <tag>微服务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用Hexo命令</title>
+    <url>/2023/10/17/chang-yong-hexo-ming-ling/</url>
+    <content><![CDATA[<p>hexo常用命令：<a href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
+<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个网站"><a href="#新建一个网站" class="headerlink" title="新建一个网站"></a>新建一个网站</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init #默认在当前目录创建</span><br><span class="line">hexo init [folder] #指定网站目录</span><br></pre></td></tr></table></figure>
+<h4 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="发布草稿"><a href="#发布草稿" class="headerlink" title="发布草稿"></a>发布草稿</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="清除已生成的静态文件及缓存文件-db-json"><a href="#清除已生成的静态文件及缓存文件-db-json" class="headerlink" title="清除已生成的静态文件及缓存文件 (db.json)"></a>清除已生成的静态文件及缓存文件 (db.json)</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h4 id="强制重新生成静态文件"><a href="#强制重新生成静态文件" class="headerlink" title="强制重新生成静态文件"></a>强制重新生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -f</span><br></pre></td></tr></table></figure>
+<h4 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="启动网站服务"><a href="#启动网站服务" class="headerlink" title="启动网站服务"></a>启动网站服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="显示-Hexo-版本"><a href="#显示-Hexo-版本" class="headerlink" title="显示 Hexo 版本"></a>显示 Hexo 版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
