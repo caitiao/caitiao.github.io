@@ -106,24 +106,6 @@
       </tags>
   </entry>
   <entry>
-    <title>k8s如何停止服务</title>
-    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
-    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
-<ol>
-<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
-<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>service</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>iterm2配置123</title>
     <url>/2023/12/07/iterm2-pei-zhi-zhi-nan/</url>
     <content><![CDATA[<p>拿到mac电脑后，第一件事一般都会需要配置一个适合自己用的终端。我一般选择iterm2作为日常工作的终端，下面我就来记录下怎么配置我的iterm2。</p>
@@ -162,6 +144,24 @@
       </tags>
   </entry>
   <entry>
+    <title>k8s如何停止服务</title>
+    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
+    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
+<ol>
+<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
+<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>service</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -195,29 +195,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ls Operation not permitted</title>
-    <url>/2023/10/23/ls-operation-not-permitted/</url>
-    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
-<ol>
-<li>单击菜单栏上的苹果图标</li>
-<li>选择系统偏好设置</li>
-<li>点击安全和隐私，</li>
-<li>选择文件和文件夹，</li>
-<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
-<li>点击退出并重新打开</li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题解决</category>
-      </categories>
-      <tags>
-        <tag>ZSH</tag>
-        <tag>Terminal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>kubectl常用命令</title>
     <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
     <content><![CDATA[<p>kubectl常用命令</p>
@@ -239,6 +216,29 @@
       <tags>
         <tag>k8s</tag>
         <tag>kubectl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ls Operation not permitted</title>
+    <url>/2023/10/23/ls-operation-not-permitted/</url>
+    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
+<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
+<ol>
+<li>单击菜单栏上的苹果图标</li>
+<li>选择系统偏好设置</li>
+<li>点击安全和隐私，</li>
+<li>选择文件和文件夹，</li>
+<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
+<li>点击退出并重新打开</li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题解决</category>
+      </categories>
+      <tags>
+        <tag>ZSH</tag>
+        <tag>Terminal</tag>
       </tags>
   </entry>
   <entry>
