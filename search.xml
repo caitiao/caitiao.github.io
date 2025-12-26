@@ -162,30 +162,6 @@
       </tags>
   </entry>
   <entry>
-    <title>kubectl常用命令</title>
-    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
-    <content><![CDATA[<p>kubectl常用命令</p>
-<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
-<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
-<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
-<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>kubectl</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -219,6 +195,30 @@
       </tags>
   </entry>
   <entry>
+    <title>kubectl常用命令</title>
+    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
+    <content><![CDATA[<p>kubectl常用命令</p>
+<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
+<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
+<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
+<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>kubectl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ls Operation not permitted</title>
     <url>/2023/10/23/ls-operation-not-permitted/</url>
     <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
@@ -239,30 +239,6 @@
       <tags>
         <tag>ZSH</tag>
         <tag>Terminal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用ifconfig查看本机ip</title>
-    <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
-    <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0</span><br><span class="line">eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.8.21  netmask 255.255.240.0  broadcast 192.168.8.1</span><br><span class="line">        ether 00:16:3e:0c:ec:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 215013189  bytes 59080762287 (55.0 GiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 125960779  bytes 124345275246 (115.8 GiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
-
-<p>第二行的第一个ip就是本机ip<code>192.168.8.21</code></p>
-<p>在MacOS中稍有不同，命令为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ifconfig en0</span><br></pre></td></tr></table></figure>
-<p>接下来，我们使用<code>grep</code> <code>awk</code>来进行精确获取</p>
-<h4 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27; | awk -v FS=&quot;:&quot; &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig en0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>ifconfig</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -290,6 +266,30 @@
       </tags>
   </entry>
   <entry>
+    <title>使用ifconfig查看本机ip</title>
+    <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
+    <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0</span><br><span class="line">eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.8.21  netmask 255.255.240.0  broadcast 192.168.8.1</span><br><span class="line">        ether 00:16:3e:0c:ec:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 215013189  bytes 59080762287 (55.0 GiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 125960779  bytes 124345275246 (115.8 GiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+
+<p>第二行的第一个ip就是本机ip<code>192.168.8.21</code></p>
+<p>在MacOS中稍有不同，命令为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ifconfig en0</span><br></pre></td></tr></table></figure>
+<p>接下来，我们使用<code>grep</code> <code>awk</code>来进行精确获取</p>
+<h4 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27; | awk -v FS=&quot;:&quot; &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig en0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>ifconfig</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用nmap扫描网段有多少主机在线</title>
     <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
     <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
@@ -306,29 +306,6 @@
       <tags>
         <tag>nmap</tag>
         <tag>网段扫描</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用Git命令</title>
-    <url>/2023/10/23/chang-yong-git-ming-ling/</url>
-    <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
-<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
-<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
-<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
-<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
-<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
-<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
-<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
-<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>版本管理</tag>
       </tags>
   </entry>
   <entry>
@@ -354,6 +331,29 @@
       <tags>
         <tag>docker</tag>
         <tag>容器技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用Git命令</title>
+    <url>/2023/10/23/chang-yong-git-ming-ling/</url>
+    <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
+<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
+<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
+<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
+<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
+<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
+<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>版本管理</tag>
       </tags>
   </entry>
   <entry>
