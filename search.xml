@@ -334,6 +334,28 @@
       </tags>
   </entry>
   <entry>
+    <title>常用Hexo命令</title>
+    <url>/2023/10/17/chang-yong-hexo-ming-ling/</url>
+    <content><![CDATA[<p>hexo常用命令：<a href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
+<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h4 id="新建一个网站"><a href="#新建一个网站" class="headerlink" title="新建一个网站"></a>新建一个网站</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init #默认在当前目录创建</span><br><span class="line">hexo init [folder] #指定网站目录</span><br></pre></td></tr></table></figure>
+<h4 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="发布草稿"><a href="#发布草稿" class="headerlink" title="发布草稿"></a>发布草稿</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="清除已生成的静态文件及缓存文件-db-json"><a href="#清除已生成的静态文件及缓存文件-db-json" class="headerlink" title="清除已生成的静态文件及缓存文件 (db.json)"></a>清除已生成的静态文件及缓存文件 (db.json)</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h4 id="强制重新生成静态文件"><a href="#强制重新生成静态文件" class="headerlink" title="强制重新生成静态文件"></a>强制重新生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -f</span><br></pre></td></tr></table></figure>
+<h4 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="启动网站服务"><a href="#启动网站服务" class="headerlink" title="启动网站服务"></a>启动网站服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="显示-Hexo-版本"><a href="#显示-Hexo-版本" class="headerlink" title="显示 Hexo 版本"></a>显示 Hexo 版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用Git命令</title>
     <url>/2023/10/23/chang-yong-git-ming-ling/</url>
     <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
@@ -354,28 +376,6 @@
       <tags>
         <tag>git</tag>
         <tag>版本管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用Hexo命令</title>
-    <url>/2023/10/17/chang-yong-hexo-ming-ling/</url>
-    <content><![CDATA[<p>hexo常用命令：<a href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
-<h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h4 id="新建一个网站"><a href="#新建一个网站" class="headerlink" title="新建一个网站"></a>新建一个网站</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init #默认在当前目录创建</span><br><span class="line">hexo init [folder] #指定网站目录</span><br></pre></td></tr></table></figure>
-<h4 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="发布草稿"><a href="#发布草稿" class="headerlink" title="发布草稿"></a>发布草稿</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="清除已生成的静态文件及缓存文件-db-json"><a href="#清除已生成的静态文件及缓存文件-db-json" class="headerlink" title="清除已生成的静态文件及缓存文件 (db.json)"></a>清除已生成的静态文件及缓存文件 (db.json)</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<h4 id="强制重新生成静态文件"><a href="#强制重新生成静态文件" class="headerlink" title="强制重新生成静态文件"></a>强制重新生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -f</span><br></pre></td></tr></table></figure>
-<h4 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="启动网站服务"><a href="#启动网站服务" class="headerlink" title="启动网站服务"></a>启动网站服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<h4 id="显示-Hexo-版本"><a href="#显示-Hexo-版本" class="headerlink" title="显示 Hexo 版本"></a>显示 Hexo 版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -411,10 +411,10 @@
       </tags>
   </entry>
   <entry>
-    <title>根据PID过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
+    <title>根据进程名过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>常用脚本</category>
@@ -424,10 +424,10 @@
       </tags>
   </entry>
   <entry>
-    <title>根据进程名过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+    <title>根据PID过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>常用脚本</category>
