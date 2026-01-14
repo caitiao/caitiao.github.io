@@ -57,22 +57,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Pod资源对象yaml详解</title>
-    <url>/2023/10/25/pod-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
-    <content><![CDATA[<p>Pod资源对象yaml详解</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1     #必选，版本号，例如v1</span><br><span class="line">kind: Pod       #必选，指定创建资源的角色/类型  </span><br><span class="line">metadata:        #必选，资源的元数据/属性 </span><br><span class="line">  name: string       #必选，资源的名字，在同一个namespace中必须唯一  </span><br><span class="line">  namespace: string     #必选，Pod所属的命名空间</span><br><span class="line">  labels:      #自定义标签,使这个标签在service网络中备案，以便被获知</span><br><span class="line">    - name: string   #自定义标签名字</span><br><span class="line">  annotations:       #设置自定义注解列表  </span><br><span class="line">    - name: string   #设置自定义注解名字  </span><br><span class="line">spec:         #必选，设置该资源的详细定义</span><br><span class="line">  containers:    #必选，Pod中容器列表</span><br><span class="line">  - name: string     #必选，容器名称</span><br><span class="line">    image: string    #必选，容器的镜像名称</span><br><span class="line">    imagePullPolicy: [Always | Never | IfNotPresent] #获取镜像的策略 Alawys表示下载镜像 IfnotPresent表示优先使用本地镜像，否则下载镜像，Nerver表示仅使用本地镜像</span><br><span class="line">    command: [string]    #容器的启动命令列表，如不指定，使用打包时使用的启动命令</span><br><span class="line">    args: [string]     #容器的启动命令参数列表</span><br><span class="line">    workingDir: string   #容器的工作目录</span><br><span class="line">    volumeMounts:        #挂载到容器内部的存储卷配置</span><br><span class="line">    - name: string     #引用pod定义的共享存储卷的名称，需用volumes[]部分定义的的卷名</span><br><span class="line">      mountPath: string    #存储卷在容器内mount的绝对路径，应少于512字符</span><br><span class="line">      readOnly: boolean    #是否为只读模式</span><br><span class="line">    ports:       #需要暴露的端口库号列表</span><br><span class="line">    - name: string     #端口号名称</span><br><span class="line">      containerPort: int  #容器需要监听的端口号</span><br><span class="line">      hostPort: int    #容器所在主机需要监听的端口号，默认与Container相同</span><br><span class="line">      protocol: string     #端口协议，支持TCP和UDP，默认TCP</span><br><span class="line">    env:       #容器运行前需设置的环境变量列表</span><br><span class="line">    - name: string     #环境变量名称</span><br><span class="line">      value: string    #环境变量的值</span><br><span class="line">    resources:       #资源限制和请求的设置</span><br><span class="line">      limits:      #资源限制的设置</span><br><span class="line">        cpu: string    #Cpu的限制，单位为core数，将用于docker run --cpu-shares参数</span><br><span class="line">        memory: string   #内存限制，单位可以为Mib/Gib，将用于docker run --memory参数</span><br><span class="line">      requests:         #资源请求的设置</span><br><span class="line">        cpu: string    #Cpu请求，容器启动的初始可用数量</span><br><span class="line">        memory: string   #内存清楚，容器启动的初始可用数量</span><br><span class="line">    livenessProbe:     #对Pod内个容器健康检查的设置，当探测无响应几次后将自动重启该容器，检查方法有exec、httpGet和tcpSocket，对一个容器只需设置其中一种方法即可</span><br><span class="line">      exec:      #对Pod容器内检查方式设置为exec方式</span><br><span class="line">        command: [string]  #exec方式需要制定的命令或脚本</span><br><span class="line">      httpGet:       #对Pod内个容器健康检查方法设置为HttpGet，需要制定Path、port</span><br><span class="line">        path: string</span><br><span class="line">        port: number</span><br><span class="line">        host: string</span><br><span class="line">        scheme: string</span><br><span class="line">        HttpHeaders:</span><br><span class="line">        - name: string</span><br><span class="line">          value: string</span><br><span class="line">      tcpSocket:     #对Pod内个容器健康检查方式设置为tcpSocket方式</span><br><span class="line">         port: number</span><br><span class="line">       initialDelaySeconds: 0  #容器启动完成后首次探测的时间，单位为秒</span><br><span class="line">       timeoutSeconds: 0   #对容器健康检查探测等待响应的超时时间，单位秒，默认1秒</span><br><span class="line">       periodSeconds: 0    #对容器监控检查的定期探测时间设置，单位秒，默认10秒一次</span><br><span class="line">       successThreshold: 0</span><br><span class="line">       failureThreshold: 0</span><br><span class="line">       securityContext:</span><br><span class="line">         privileged:false</span><br><span class="line">    restartPolicy: [Always | Never | OnFailure]#Pod的重启策略，Always表示一旦不管以何种方式终止运行，kubelet都将重启，OnFailure表示只有Pod以非0退出码退出才重启，Nerver表示不再重启该Pod</span><br><span class="line">    nodeSelector: obeject  #设置NodeSelector表示将该Pod调度到包含这个label的node上，以key：value的格式指定</span><br><span class="line">    imagePullSecrets:    #Pull镜像时使用的secret名称，以key：secretkey格式指定</span><br><span class="line">    - name: string</span><br><span class="line">    hostNetwork:false      #是否使用主机网络模式，默认为false，如果设置为true，表示使用宿主机网络</span><br><span class="line">    volumes:       #在该pod上定义共享存储卷列表</span><br><span class="line">    - name: string     #共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">      emptyDir: &#123;&#125;     #类型为emtyDir的存储卷，与Pod同生命周期的一个临时目录。为空值</span><br><span class="line">      hostPath: string     #类型为hostPath的存储卷，表示挂载Pod所在宿主机的目录</span><br><span class="line">        path: string     #Pod所在宿主机的目录，将被用于同期中mount的目录</span><br><span class="line">      secret:      #类型为secret的存储卷，挂载集群与定义的secre对象到容器内部</span><br><span class="line">        scretname: string  </span><br><span class="line">        items:     </span><br><span class="line">        - key: string</span><br><span class="line">          path: string</span><br><span class="line">      configMap:     #类型为configMap的存储卷，挂载预定义的configMap对象到容器内部</span><br><span class="line">        name: string</span><br><span class="line">        items:</span><br><span class="line">        - key: string</span><br><span class="line">          path: string</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>yaml</tag>
-        <tag>pod</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Service资源对象yaml详解</title>
     <url>/2023/10/25/service-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
     <content><![CDATA[<p>Service资源对象yaml详解</p>
@@ -86,6 +70,22 @@
         <tag>k8s</tag>
         <tag>yaml</tag>
         <tag>service</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pod资源对象yaml详解</title>
+    <url>/2023/10/25/pod-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
+    <content><![CDATA[<p>Pod资源对象yaml详解</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1     #必选，版本号，例如v1</span><br><span class="line">kind: Pod       #必选，指定创建资源的角色/类型  </span><br><span class="line">metadata:        #必选，资源的元数据/属性 </span><br><span class="line">  name: string       #必选，资源的名字，在同一个namespace中必须唯一  </span><br><span class="line">  namespace: string     #必选，Pod所属的命名空间</span><br><span class="line">  labels:      #自定义标签,使这个标签在service网络中备案，以便被获知</span><br><span class="line">    - name: string   #自定义标签名字</span><br><span class="line">  annotations:       #设置自定义注解列表  </span><br><span class="line">    - name: string   #设置自定义注解名字  </span><br><span class="line">spec:         #必选，设置该资源的详细定义</span><br><span class="line">  containers:    #必选，Pod中容器列表</span><br><span class="line">  - name: string     #必选，容器名称</span><br><span class="line">    image: string    #必选，容器的镜像名称</span><br><span class="line">    imagePullPolicy: [Always | Never | IfNotPresent] #获取镜像的策略 Alawys表示下载镜像 IfnotPresent表示优先使用本地镜像，否则下载镜像，Nerver表示仅使用本地镜像</span><br><span class="line">    command: [string]    #容器的启动命令列表，如不指定，使用打包时使用的启动命令</span><br><span class="line">    args: [string]     #容器的启动命令参数列表</span><br><span class="line">    workingDir: string   #容器的工作目录</span><br><span class="line">    volumeMounts:        #挂载到容器内部的存储卷配置</span><br><span class="line">    - name: string     #引用pod定义的共享存储卷的名称，需用volumes[]部分定义的的卷名</span><br><span class="line">      mountPath: string    #存储卷在容器内mount的绝对路径，应少于512字符</span><br><span class="line">      readOnly: boolean    #是否为只读模式</span><br><span class="line">    ports:       #需要暴露的端口库号列表</span><br><span class="line">    - name: string     #端口号名称</span><br><span class="line">      containerPort: int  #容器需要监听的端口号</span><br><span class="line">      hostPort: int    #容器所在主机需要监听的端口号，默认与Container相同</span><br><span class="line">      protocol: string     #端口协议，支持TCP和UDP，默认TCP</span><br><span class="line">    env:       #容器运行前需设置的环境变量列表</span><br><span class="line">    - name: string     #环境变量名称</span><br><span class="line">      value: string    #环境变量的值</span><br><span class="line">    resources:       #资源限制和请求的设置</span><br><span class="line">      limits:      #资源限制的设置</span><br><span class="line">        cpu: string    #Cpu的限制，单位为core数，将用于docker run --cpu-shares参数</span><br><span class="line">        memory: string   #内存限制，单位可以为Mib/Gib，将用于docker run --memory参数</span><br><span class="line">      requests:         #资源请求的设置</span><br><span class="line">        cpu: string    #Cpu请求，容器启动的初始可用数量</span><br><span class="line">        memory: string   #内存清楚，容器启动的初始可用数量</span><br><span class="line">    livenessProbe:     #对Pod内个容器健康检查的设置，当探测无响应几次后将自动重启该容器，检查方法有exec、httpGet和tcpSocket，对一个容器只需设置其中一种方法即可</span><br><span class="line">      exec:      #对Pod容器内检查方式设置为exec方式</span><br><span class="line">        command: [string]  #exec方式需要制定的命令或脚本</span><br><span class="line">      httpGet:       #对Pod内个容器健康检查方法设置为HttpGet，需要制定Path、port</span><br><span class="line">        path: string</span><br><span class="line">        port: number</span><br><span class="line">        host: string</span><br><span class="line">        scheme: string</span><br><span class="line">        HttpHeaders:</span><br><span class="line">        - name: string</span><br><span class="line">          value: string</span><br><span class="line">      tcpSocket:     #对Pod内个容器健康检查方式设置为tcpSocket方式</span><br><span class="line">         port: number</span><br><span class="line">       initialDelaySeconds: 0  #容器启动完成后首次探测的时间，单位为秒</span><br><span class="line">       timeoutSeconds: 0   #对容器健康检查探测等待响应的超时时间，单位秒，默认1秒</span><br><span class="line">       periodSeconds: 0    #对容器监控检查的定期探测时间设置，单位秒，默认10秒一次</span><br><span class="line">       successThreshold: 0</span><br><span class="line">       failureThreshold: 0</span><br><span class="line">       securityContext:</span><br><span class="line">         privileged:false</span><br><span class="line">    restartPolicy: [Always | Never | OnFailure]#Pod的重启策略，Always表示一旦不管以何种方式终止运行，kubelet都将重启，OnFailure表示只有Pod以非0退出码退出才重启，Nerver表示不再重启该Pod</span><br><span class="line">    nodeSelector: obeject  #设置NodeSelector表示将该Pod调度到包含这个label的node上，以key：value的格式指定</span><br><span class="line">    imagePullSecrets:    #Pull镜像时使用的secret名称，以key：secretkey格式指定</span><br><span class="line">    - name: string</span><br><span class="line">    hostNetwork:false      #是否使用主机网络模式，默认为false，如果设置为true，表示使用宿主机网络</span><br><span class="line">    volumes:       #在该pod上定义共享存储卷列表</span><br><span class="line">    - name: string     #共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">      emptyDir: &#123;&#125;     #类型为emtyDir的存储卷，与Pod同生命周期的一个临时目录。为空值</span><br><span class="line">      hostPath: string     #类型为hostPath的存储卷，表示挂载Pod所在宿主机的目录</span><br><span class="line">        path: string     #Pod所在宿主机的目录，将被用于同期中mount的目录</span><br><span class="line">      secret:      #类型为secret的存储卷，挂载集群与定义的secre对象到容器内部</span><br><span class="line">        scretname: string  </span><br><span class="line">        items:     </span><br><span class="line">        - key: string</span><br><span class="line">          path: string</span><br><span class="line">      configMap:     #类型为configMap的存储卷，挂载预定义的configMap对象到容器内部</span><br><span class="line">        name: string</span><br><span class="line">        items:</span><br><span class="line">        - key: string</span><br><span class="line">          path: string</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>yaml</tag>
+        <tag>pod</tag>
       </tags>
   </entry>
   <entry>
@@ -162,6 +162,30 @@
       </tags>
   </entry>
   <entry>
+    <title>kubectl常用命令</title>
+    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
+    <content><![CDATA[<p>kubectl常用命令</p>
+<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
+<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
+<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
+<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>kubectl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -192,30 +216,6 @@
       </categories>
       <tags>
         <tag>k8s</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kubectl常用命令</title>
-    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
-    <content><![CDATA[<p>kubectl常用命令</p>
-<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
-<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
-<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
-<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>kubectl</tag>
       </tags>
   </entry>
   <entry>
