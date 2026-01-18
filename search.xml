@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Deployment资源对象yaml详解</title>
+    <url>/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
+    <content><![CDATA[<p>Deployment资源对象yaml详解</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata: ----------------------------------------#元数据</span><br><span class="line">  annotations: -------------------------------------#注释信息</span><br><span class="line">    deployment.kubernetes.io/revision: &#x27;1&#x27;</span><br><span class="line">    k8s.kuboard.cn/ingress: &#x27;false&#x27;</span><br><span class="line">    k8s.kuboard.cn/service: NodePort</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels:-------------------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;            </span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud-----------------------------------#名称</span><br><span class="line">  namespace: nextcloud------------------------------#命名空间 </span><br><span class="line">spec:-----------------------------------------------#定义容器模板，该模板可以包含多个容器 </span><br><span class="line">  replicas: 3---------------------------------------#副本数量</span><br><span class="line">  selector:-----------------------------------------#标签选择器</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">      k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  strategy:-----------------------------------------#滚动升级策略</span><br><span class="line">    type: RollingUpdate-----------------------------#类型</span><br><span class="line">    rollingUpdate:----------------------------------#由于replicas为3,则整个升级,pod个数在2-4个之间    </span><br><span class="line">      maxSurge: 25%---------------------------------#滚动升级时会先启动25%pod  </span><br><span class="line">      maxUnavailable: 25%---------------------------#滚动升级时允许的最大Unavailable的pod个数</span><br><span class="line">  template:                     #镜像模板                   </span><br><span class="line">    metadata: ------------------------------------#元数据</span><br><span class="line">      labels:---------------------------------------#标签</span><br><span class="line">        k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">        k8s.kuboard.cn/name: nextcloud</span><br><span class="line">    spec: ------------------------------------------#定义容器模板，该模板可以包含多个容器</span><br><span class="line">      containers: ----------------------------------#容器信息</span><br><span class="line">    - name: nextcloud --------------------------#容器名称</span><br><span class="line">          image: &#x27;172.16.20.100/library/nextcloud:yan&#x27; #镜像名称</span><br><span class="line">          imagePullPolicy: Always ------------------#镜像下载策略 </span><br><span class="line">          ports:</span><br><span class="line">            - name: http</span><br><span class="line">              containerPort: 80</span><br><span class="line">              protocol: TCP</span><br><span class="line">          env</span><br><span class="line">          resources: -------------------------------#CPU内存限制</span><br><span class="line">        limits: --------------------------------#限制cpu内存                      </span><br><span class="line">              cpu: 200m</span><br><span class="line">              memory: 200m</span><br><span class="line">            requests: ------------------------------#请求cpu内存</span><br><span class="line">              cpu: 100m</span><br><span class="line">              memory: 100m</span><br><span class="line">          securityContext: -------------------------#安全设定</span><br><span class="line">            privileged: true -----------------------#开启享有特权</span><br><span class="line">          volumeMounts: ----------------------------#挂载volumes中定义的磁盘</span><br><span class="line">        - name: html ---------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/www/html </span><br><span class="line">            - name: session ------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/lib/php/session       </span><br><span class="line">      volumes:  ------------------------------------#在该pod上定义共享存储卷列表</span><br><span class="line">        - name: html -------------------------------#共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">          persistentVolumeClaim: -------------------#volumes类型为pvc</span><br><span class="line">            claimName: html  -----------------------#关联pvc名称</span><br><span class="line">        - name: session</span><br><span class="line">          persistentVolumeClaim:</span><br><span class="line">            claimName: session        </span><br><span class="line">      restartPolicy: Always ------------------------#Pod的重启策略 </span><br><span class="line">                              #Always表示一旦不管以何种方式终止运行，kubelet都将重启，</span><br><span class="line">                              #OnFailure表示只有Pod以非0退出码退出才重启，</span><br><span class="line">                              #Nerver表示不再重启该Pod</span><br><span class="line">      schedulerName: default-scheduler -------------#指定pod调度到节点</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>yaml</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用VS Code，Hexo与GitHub Pages写博客</title>
     <url>/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</url>
     <content><![CDATA[<span id="more"></span>
@@ -38,22 +54,6 @@
         <tag>VS Code</tag>
         <tag>Hexo</tag>
         <tag>GitHub Pages</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deployment资源对象yaml详解</title>
-    <url>/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
-    <content><![CDATA[<p>Deployment资源对象yaml详解</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata: ----------------------------------------#元数据</span><br><span class="line">  annotations: -------------------------------------#注释信息</span><br><span class="line">    deployment.kubernetes.io/revision: &#x27;1&#x27;</span><br><span class="line">    k8s.kuboard.cn/ingress: &#x27;false&#x27;</span><br><span class="line">    k8s.kuboard.cn/service: NodePort</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels:-------------------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;            </span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud-----------------------------------#名称</span><br><span class="line">  namespace: nextcloud------------------------------#命名空间 </span><br><span class="line">spec:-----------------------------------------------#定义容器模板，该模板可以包含多个容器 </span><br><span class="line">  replicas: 3---------------------------------------#副本数量</span><br><span class="line">  selector:-----------------------------------------#标签选择器</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">      k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  strategy:-----------------------------------------#滚动升级策略</span><br><span class="line">    type: RollingUpdate-----------------------------#类型</span><br><span class="line">    rollingUpdate:----------------------------------#由于replicas为3,则整个升级,pod个数在2-4个之间    </span><br><span class="line">      maxSurge: 25%---------------------------------#滚动升级时会先启动25%pod  </span><br><span class="line">      maxUnavailable: 25%---------------------------#滚动升级时允许的最大Unavailable的pod个数</span><br><span class="line">  template:                     #镜像模板                   </span><br><span class="line">    metadata: ------------------------------------#元数据</span><br><span class="line">      labels:---------------------------------------#标签</span><br><span class="line">        k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">        k8s.kuboard.cn/name: nextcloud</span><br><span class="line">    spec: ------------------------------------------#定义容器模板，该模板可以包含多个容器</span><br><span class="line">      containers: ----------------------------------#容器信息</span><br><span class="line">    - name: nextcloud --------------------------#容器名称</span><br><span class="line">          image: &#x27;172.16.20.100/library/nextcloud:yan&#x27; #镜像名称</span><br><span class="line">          imagePullPolicy: Always ------------------#镜像下载策略 </span><br><span class="line">          ports:</span><br><span class="line">            - name: http</span><br><span class="line">              containerPort: 80</span><br><span class="line">              protocol: TCP</span><br><span class="line">          env</span><br><span class="line">          resources: -------------------------------#CPU内存限制</span><br><span class="line">        limits: --------------------------------#限制cpu内存                      </span><br><span class="line">              cpu: 200m</span><br><span class="line">              memory: 200m</span><br><span class="line">            requests: ------------------------------#请求cpu内存</span><br><span class="line">              cpu: 100m</span><br><span class="line">              memory: 100m</span><br><span class="line">          securityContext: -------------------------#安全设定</span><br><span class="line">            privileged: true -----------------------#开启享有特权</span><br><span class="line">          volumeMounts: ----------------------------#挂载volumes中定义的磁盘</span><br><span class="line">        - name: html ---------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/www/html </span><br><span class="line">            - name: session ------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/lib/php/session       </span><br><span class="line">      volumes:  ------------------------------------#在该pod上定义共享存储卷列表</span><br><span class="line">        - name: html -------------------------------#共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">          persistentVolumeClaim: -------------------#volumes类型为pvc</span><br><span class="line">            claimName: html  -----------------------#关联pvc名称</span><br><span class="line">        - name: session</span><br><span class="line">          persistentVolumeClaim:</span><br><span class="line">            claimName: session        </span><br><span class="line">      restartPolicy: Always ------------------------#Pod的重启策略 </span><br><span class="line">                              #Always表示一旦不管以何种方式终止运行，kubelet都将重启，</span><br><span class="line">                              #OnFailure表示只有Pod以非0退出码退出才重启，</span><br><span class="line">                              #Nerver表示不再重启该Pod</span><br><span class="line">      schedulerName: default-scheduler -------------#指定pod调度到节点</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>yaml</tag>
       </tags>
   </entry>
   <entry>
@@ -106,24 +106,6 @@
       </tags>
   </entry>
   <entry>
-    <title>k8s如何停止服务</title>
-    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
-    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
-<ol>
-<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
-<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>service</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>iterm2配置123</title>
     <url>/2023/12/07/iterm2-pei-zhi-zhi-nan/</url>
     <content><![CDATA[<p>拿到mac电脑后，第一件事一般都会需要配置一个适合自己用的终端。我一般选择iterm2作为日常工作的终端，下面我就来记录下怎么配置我的iterm2。</p>
@@ -159,6 +141,24 @@
       </categories>
       <tags>
         <tag>iterm2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>k8s如何停止服务</title>
+    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
+    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
+<ol>
+<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
+<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>service</tag>
       </tags>
   </entry>
   <entry>
@@ -290,6 +290,25 @@
       </tags>
   </entry>
   <entry>
+    <title>使用nmap扫描网段有多少主机在线</title>
+    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
+    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
+<ol>
+<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
+<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
+<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>nmap</tag>
+        <tag>网段扫描</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用docker命令</title>
     <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
     <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
@@ -312,25 +331,6 @@
       <tags>
         <tag>docker</tag>
         <tag>容器技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用nmap扫描网段有多少主机在线</title>
-    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
-    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
-<ol>
-<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
-<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
-<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>nmap</tag>
-        <tag>网段扫描</tag>
       </tags>
   </entry>
   <entry>
@@ -437,30 +437,6 @@
       </tags>
   </entry>
   <entry>
-    <title>运行一个单实例有状态应用</title>
-    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
-    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
-<ol>
-<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
-<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
-<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>mysql</tag>
-        <tag>PersistentVolume</tag>
-        <tag>PersistentVolumeClaim</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>现代应用程序</title>
     <url>/2023/10/31/xian-dai-ying-yong-cheng-xu/</url>
     <content><![CDATA[<p>现代应用程序(Modern Application)是通过采用云原生体系结构来快速响应事件，满足客户多变需求的一种方法，它的构建采用了容器化，松散耦合的微服务架构模式，Serverless运行模式和DevOps自动化软件交付流程。</p>
@@ -484,6 +460,30 @@
         <tag>微服务</tag>
         <tag>多云</tag>
         <tag>弹性</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>运行一个单实例有状态应用</title>
+    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
+    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
+<ol>
+<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
+<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
+<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>mysql</tag>
+        <tag>PersistentVolume</tag>
+        <tag>PersistentVolumeClaim</tag>
       </tags>
   </entry>
 </search>
