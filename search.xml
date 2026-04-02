@@ -266,28 +266,27 @@
       </tags>
   </entry>
   <entry>
-    <title>常用docker命令</title>
-    <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
-    <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
-<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
-<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
-<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
-<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
-<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
-<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+    <title>使用ifconfig查看本机ip</title>
+    <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
+    <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0</span><br><span class="line">eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.8.21  netmask 255.255.240.0  broadcast 192.168.8.1</span><br><span class="line">        ether 00:16:3e:0c:ec:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 215013189  bytes 59080762287 (55.0 GiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 125960779  bytes 124345275246 (115.8 GiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+
+<p>第二行的第一个ip就是本机ip<code>192.168.8.21</code></p>
+<p>在MacOS中稍有不同，命令为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ifconfig en0</span><br></pre></td></tr></table></figure>
+<p>接下来，我们使用<code>grep</code> <code>awk</code>来进行精确获取</p>
+<h4 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27; | awk -v FS=&quot;:&quot; &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig en0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>常用命令</category>
       </categories>
       <tags>
-        <tag>docker</tag>
-        <tag>容器技术</tag>
+        <tag>ifconfig</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -310,27 +309,28 @@
       </tags>
   </entry>
   <entry>
-    <title>使用ifconfig查看本机ip</title>
-    <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
-    <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0</span><br><span class="line">eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.8.21  netmask 255.255.240.0  broadcast 192.168.8.1</span><br><span class="line">        ether 00:16:3e:0c:ec:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 215013189  bytes 59080762287 (55.0 GiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 125960779  bytes 124345275246 (115.8 GiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
-
-<p>第二行的第一个ip就是本机ip<code>192.168.8.21</code></p>
-<p>在MacOS中稍有不同，命令为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ifconfig en0</span><br></pre></td></tr></table></figure>
-<p>接下来，我们使用<code>grep</code> <code>awk</code>来进行精确获取</p>
-<h4 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig eth0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27; | awk -v FS=&quot;:&quot; &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ifconfig en0 | grep inet | grep -v inet6 | awk &#x27;&#123;print $2&#125;&#x27;</span><br></pre></td></tr></table></figure>
+    <title>常用docker命令</title>
+    <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
+    <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
+<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
+<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>常用命令</category>
       </categories>
       <tags>
-        <tag>ifconfig</tag>
-        <tag>linux</tag>
+        <tag>docker</tag>
+        <tag>容器技术</tag>
       </tags>
   </entry>
   <entry>
