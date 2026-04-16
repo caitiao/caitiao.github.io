@@ -89,6 +89,23 @@
       </tags>
   </entry>
   <entry>
+    <title>批量删除状态为Exited的容器</title>
+    <url>/2023/10/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
+<p>命令：</p>
+<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
+<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
+<p>这样就可以批量删除了！</p>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>iterm2配置123</title>
     <url>/2023/12/07/iterm2-pei-zhi-zhi-nan/</url>
     <content><![CDATA[<p>拿到mac电脑后，第一件事一般都会需要配置一个适合自己用的终端。我一般选择iterm2作为日常工作的终端，下面我就来记录下怎么配置我的iterm2。</p>
@@ -145,23 +162,6 @@
       </tags>
   </entry>
   <entry>
-    <title>批量删除状态为Exited的容器</title>
-    <url>/2023/10/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
-    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
-<p>命令：</p>
-<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
-<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
-<p>这样就可以批量删除了！</p>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>容器技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>k8s部署应用相关概念</title>
     <url>/2023/11/15/k8s-bu-shu-ying-yong-xiang-guan-gai-nian/</url>
     <content><![CDATA[<h3 id="Workloads-工作负载"><a href="#Workloads-工作负载" class="headerlink" title="Workloads(工作负载):"></a>Workloads(工作负载):</h3><p>运行在k8s上的应用，可是单独一个组件(比如：job)，也可以是多个组件协同运行(比如：deployment，service，ingress等一起构成一个应用)</p>
@@ -195,6 +195,29 @@
       </tags>
   </entry>
   <entry>
+    <title>ls Operation not permitted</title>
+    <url>/2023/10/23/ls-operation-not-permitted/</url>
+    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
+<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
+<ol>
+<li>单击菜单栏上的苹果图标</li>
+<li>选择系统偏好设置</li>
+<li>点击安全和隐私，</li>
+<li>选择文件和文件夹，</li>
+<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
+<li>点击退出并重新打开</li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题解决</category>
+      </categories>
+      <tags>
+        <tag>ZSH</tag>
+        <tag>Terminal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>kubectl常用命令</title>
     <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
     <content><![CDATA[<p>kubectl常用命令</p>
@@ -216,29 +239,6 @@
       <tags>
         <tag>k8s</tag>
         <tag>kubectl</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ls Operation not permitted</title>
-    <url>/2023/10/23/ls-operation-not-permitted/</url>
-    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
-<ol>
-<li>单击菜单栏上的苹果图标</li>
-<li>选择系统偏好设置</li>
-<li>点击安全和隐私，</li>
-<li>选择文件和文件夹，</li>
-<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
-<li>点击退出并重新打开</li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题解决</category>
-      </categories>
-      <tags>
-        <tag>ZSH</tag>
-        <tag>Terminal</tag>
       </tags>
   </entry>
   <entry>
@@ -266,6 +266,25 @@
       </tags>
   </entry>
   <entry>
+    <title>使用nmap扫描网段有多少主机在线</title>
+    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
+    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
+<ol>
+<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
+<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
+<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>nmap</tag>
+        <tag>网段扫描</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用ifconfig查看本机ip</title>
     <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
     <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
@@ -287,25 +306,6 @@
       <tags>
         <tag>ifconfig</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用nmap扫描网段有多少主机在线</title>
-    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
-    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
-<ol>
-<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
-<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
-<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>nmap</tag>
-        <tag>网段扫描</tag>
       </tags>
   </entry>
   <entry>
@@ -379,19 +379,6 @@
       </tags>
   </entry>
   <entry>
-    <title>根据PID过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用脚本</category>
-      </categories>
-      <tags>
-        <tag>shell脚本</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>应用现代化</title>
     <url>/2023/10/31/ying-yong-xian-dai-hua/</url>
     <content><![CDATA[<p>什么是应用现代化？对老旧软件进行更新使之采用更新的计算方式，包括更新的语言，框架和基础设施平台，就相当于对旧房进行翻新。通过新技术来更新改造及现代化应用的同时，来延长应用的生命周期。</p>
@@ -424,6 +411,19 @@
       </tags>
   </entry>
   <entry>
+    <title>根据PID过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-pid-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据PID过滤进程信息，注意这里的脚本仅使用MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># pid.sh</span><br><span class="line">read -p &quot;请输入要查询的PID: &quot; P</span><br><span class="line">n=`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;|wc -l`</span><br><span class="line">if [ $n -eq 0 ];then</span><br><span class="line"> echo &quot;该PID不存在！！&quot;</span><br><span class="line"> exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br><span class="line">echo &quot;进程PID: $P&quot;</span><br><span class="line">echo &quot;进程命令：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程所属用户: `ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;CPU占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;内存占用率：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">echo &quot;进程开始运行的时刻：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程运行的时间：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $10&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程状态：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程虚拟内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;进程共享内存：`ps ux | awk &#x27;$2~/^&#x27;$P&#x27;$/&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">echo &quot;--------------------------------&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用脚本</category>
+      </categories>
+      <tags>
+        <tag>shell脚本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>根据进程名过滤进程信息</title>
     <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
     <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
@@ -434,6 +434,30 @@
       </categories>
       <tags>
         <tag>shell脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>运行一个单实例有状态应用</title>
+    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
+    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
+<ol>
+<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
+<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
+<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>mysql</tag>
+        <tag>PersistentVolume</tag>
+        <tag>PersistentVolumeClaim</tag>
       </tags>
   </entry>
   <entry>
@@ -460,30 +484,6 @@
         <tag>微服务</tag>
         <tag>多云</tag>
         <tag>弹性</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>运行一个单实例有状态应用</title>
-    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
-    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
-<ol>
-<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
-<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
-<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>mysql</tag>
-        <tag>PersistentVolume</tag>
-        <tag>PersistentVolumeClaim</tag>
       </tags>
   </entry>
 </search>
