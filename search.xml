@@ -73,22 +73,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Service资源对象yaml详解</title>
-    <url>/2023/10/25/service-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
-    <content><![CDATA[<p>Service资源对象yaml详解</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:  ---------------------------------#元数据</span><br><span class="line">  annotations: -----------------------------#注释信息</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels: ----------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud --------------------------#名称</span><br><span class="line">  namespace: nextcloud ---------------------#命名空间</span><br><span class="line">spec: --------------------------------------#定义Service模板</span><br><span class="line">  clusterIP: 10.0.181.206 ------------------#指定svcip地址 不指定则随机 </span><br><span class="line">  </span><br><span class="line">=================================================================================================</span><br><span class="line">  #NodePort类型：集群外网络</span><br><span class="line">  type: NodePort ---------------------------#类型为NodePort  </span><br><span class="line">  ports:</span><br><span class="line">    - name: mnwwwp</span><br><span class="line">      nodePort: 30001 ----------------------#当type = NodePort时，指定映射到物理机的端口号</span><br><span class="line">      port: 80 -----------------------------#服务监听的端口号</span><br><span class="line">      protocol: TCP ------------------------#端口协议，支持TCP和UDP，默认TCP</span><br><span class="line">      targetPort: 80 -----------------------#需要转发到后端Pod的端口号</span><br><span class="line">  </span><br><span class="line">==================================================================================================</span><br><span class="line">  #ClusterIP类型：集群内网络</span><br><span class="line">  type: ClusterIP --------------------------#</span><br><span class="line">  ports:</span><br><span class="line">    - name: mnwwwp</span><br><span class="line">      port: 80</span><br><span class="line">      protocol: TCP</span><br><span class="line">      targetPort: 80</span><br><span class="line">    - name: j5smwx</span><br><span class="line">      port: 22</span><br><span class="line">      protocol: TCP</span><br><span class="line">      targetPort: 22</span><br><span class="line">      </span><br><span class="line">  selector:  -------------------------------#label selector配置，将选择具有label标签的Pod作为管理 </span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  sessionAffinity: None --------------------#是否支持session</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>yaml</tag>
-        <tag>service</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>批量删除状态为Exited的容器</title>
     <url>/2023/10/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
     <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
@@ -103,6 +87,22 @@
       <tags>
         <tag>docker</tag>
         <tag>容器技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Service资源对象yaml详解</title>
+    <url>/2023/10/25/service-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
+    <content><![CDATA[<p>Service资源对象yaml详解</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:  ---------------------------------#元数据</span><br><span class="line">  annotations: -----------------------------#注释信息</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels: ----------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud --------------------------#名称</span><br><span class="line">  namespace: nextcloud ---------------------#命名空间</span><br><span class="line">spec: --------------------------------------#定义Service模板</span><br><span class="line">  clusterIP: 10.0.181.206 ------------------#指定svcip地址 不指定则随机 </span><br><span class="line">  </span><br><span class="line">=================================================================================================</span><br><span class="line">  #NodePort类型：集群外网络</span><br><span class="line">  type: NodePort ---------------------------#类型为NodePort  </span><br><span class="line">  ports:</span><br><span class="line">    - name: mnwwwp</span><br><span class="line">      nodePort: 30001 ----------------------#当type = NodePort时，指定映射到物理机的端口号</span><br><span class="line">      port: 80 -----------------------------#服务监听的端口号</span><br><span class="line">      protocol: TCP ------------------------#端口协议，支持TCP和UDP，默认TCP</span><br><span class="line">      targetPort: 80 -----------------------#需要转发到后端Pod的端口号</span><br><span class="line">  </span><br><span class="line">==================================================================================================</span><br><span class="line">  #ClusterIP类型：集群内网络</span><br><span class="line">  type: ClusterIP --------------------------#</span><br><span class="line">  ports:</span><br><span class="line">    - name: mnwwwp</span><br><span class="line">      port: 80</span><br><span class="line">      protocol: TCP</span><br><span class="line">      targetPort: 80</span><br><span class="line">    - name: j5smwx</span><br><span class="line">      port: 22</span><br><span class="line">      protocol: TCP</span><br><span class="line">      targetPort: 22</span><br><span class="line">      </span><br><span class="line">  selector:  -------------------------------#label selector配置，将选择具有label标签的Pod作为管理 </span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  sessionAffinity: None --------------------#是否支持session</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>yaml</tag>
+        <tag>service</tag>
       </tags>
   </entry>
   <entry>
@@ -195,29 +195,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ls Operation not permitted</title>
-    <url>/2023/10/23/ls-operation-not-permitted/</url>
-    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
-<ol>
-<li>单击菜单栏上的苹果图标</li>
-<li>选择系统偏好设置</li>
-<li>点击安全和隐私，</li>
-<li>选择文件和文件夹，</li>
-<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
-<li>点击退出并重新打开</li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题解决</category>
-      </categories>
-      <tags>
-        <tag>ZSH</tag>
-        <tag>Terminal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>kubectl常用命令</title>
     <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
     <content><![CDATA[<p>kubectl常用命令</p>
@@ -239,6 +216,29 @@
       <tags>
         <tag>k8s</tag>
         <tag>kubectl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ls Operation not permitted</title>
+    <url>/2023/10/23/ls-operation-not-permitted/</url>
+    <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxx@xxxx % ls</span><br><span class="line">ls:.:Operation not permitted</span><br></pre></td></tr></table></figure>
+<p>经过排查及网上查资料，发现需要执行以下几步来解决</p>
+<ol>
+<li>单击菜单栏上的苹果图标</li>
+<li>选择系统偏好设置</li>
+<li>点击安全和隐私，</li>
+<li>选择文件和文件夹，</li>
+<li>允许下面的应用程序访问文件和文件夹，查找终端并检查 - 桌面文件夹</li>
+<li>点击退出并重新打开</li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题解决</category>
+      </categories>
+      <tags>
+        <tag>ZSH</tag>
+        <tag>Terminal</tag>
       </tags>
   </entry>
   <entry>
@@ -266,25 +266,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用nmap扫描网段有多少主机在线</title>
-    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
-    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
-<ol>
-<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
-<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
-<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>nmap</tag>
-        <tag>网段扫描</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用ifconfig查看本机ip</title>
     <url>/2023/10/17/shi-yong-ifconfig-cha-kan-ben-ji-ip/</url>
     <content><![CDATA[<p>在终端中输入<code>ifconfig</code>可以看到很多的信息，其中包含了本机的ip，但是信息过多，即使你知道从什么地方查找，每次看也会头晕，我们需要精确找到本机ip的方法。<br>在linux中使用命令</p>
@@ -306,6 +287,25 @@
       <tags>
         <tag>ifconfig</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用nmap扫描网段有多少主机在线</title>
+    <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
+    <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
+<ol>
+<li>安装nmap<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install nmap</span><br></pre></td></tr></table></figure></li>
+<li>探测网络中活跃的主机<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 扫描此网段有多少ip在线，探测网段中的全部主机</span><br><span class="line">nmap -v -sP 192.168.1.0/24</span><br></pre></td></tr></table></figure></li>
+<li>探测主机系统版本<br>nmap -O IP：探测指定IP的相关数据<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -O 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+<li>全面扫描<br>nmap -A IP：扫描指定IP的全部内容<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -A 192.168.1.3</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>nmap</tag>
+        <tag>网段扫描</tag>
       </tags>
   </entry>
   <entry>
@@ -437,30 +437,6 @@
       </tags>
   </entry>
   <entry>
-    <title>运行一个单实例有状态应用</title>
-    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
-    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
-<ol>
-<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
-<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
-<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
-<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>mysql</tag>
-        <tag>PersistentVolume</tag>
-        <tag>PersistentVolumeClaim</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>现代应用程序</title>
     <url>/2023/10/31/xian-dai-ying-yong-cheng-xu/</url>
     <content><![CDATA[<p>现代应用程序(Modern Application)是通过采用云原生体系结构来快速响应事件，满足客户多变需求的一种方法，它的构建采用了容器化，松散耦合的微服务架构模式，Serverless运行模式和DevOps自动化软件交付流程。</p>
@@ -484,6 +460,30 @@
         <tag>微服务</tag>
         <tag>多云</tag>
         <tag>弹性</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>运行一个单实例有状态应用</title>
+    <url>/2023/11/15/yun-xing-yi-ge-dan-shi-li-you-zhuang-tai-ying-yong/</url>
+    <content><![CDATA[<p>通过创建一个 Kubernetes Deployment 并使用 <code>PersistentVolumeClaim</code> 将其连接到已有的 <code>PersistentVolume</code> 来运行一个有状态的应用</p>
+<ol>
+<li>创建一个MySQL数据存储卷的PersistentVolume，mysql-pv.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-volume</span><br><span class="line">  labels:</span><br><span class="line">    type: local</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  hostPath:</span><br><span class="line">    path: &quot;/mnt/data&quot;</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql-pv-claim</span><br><span class="line">spec:</span><br><span class="line">  storageClassName: manual</span><br><span class="line">  accessModes:</span><br><span class="line">    - ReadWriteOnce</span><br><span class="line">  resources:</span><br><span class="line">    requests:</span><br><span class="line">      storage: 20Gi</span><br></pre></td></tr></table></figure></li>
+<li>执行PersistentVolume创建<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f mysql-pv.yaml</span><br></pre></td></tr></table></figure></li>
+<li>查看新建的PersistentVolumeClaim<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pvc mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>创建一个MySQL Deployment，mysql-deployment.yaml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 3306</span><br><span class="line">  selector:</span><br><span class="line">    app: mysql</span><br><span class="line">  clusterIP: None</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: mysql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: mysql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: mysql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql:5.6</span><br><span class="line">        name: mysql</span><br><span class="line">        env:</span><br><span class="line">          # 在实际中使用 secret</span><br><span class="line">        - name: MYSQL_ROOT_PASSWORD</span><br><span class="line">          value: password</span><br><span class="line">        ports:</span><br><span class="line">        - containerPort: 3306</span><br><span class="line">          name: mysql</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: mysql-persistent-storage</span><br><span class="line">          mountPath: /var/lib/mysql</span><br><span class="line">      volumes:</span><br><span class="line">      - name: mysql-persistent-storage</span><br><span class="line">        persistentVolumeClaim:</span><br><span class="line">          claimName: mysql-pv-claim</span><br></pre></td></tr></table></figure></li>
+<li>检查创建的应用是否成功<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe deployment mysql-deployment #显示Deployment信息</span><br><span class="line">kubectl get pods -l app=mysql-deployment #查看Pod列表</span><br><span class="line">kubectl decribe pod &lt;pod-name&gt; #查看Pod信息</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>mysql</tag>
+        <tag>PersistentVolume</tag>
+        <tag>PersistentVolumeClaim</tag>
       </tags>
   </entry>
 </search>
