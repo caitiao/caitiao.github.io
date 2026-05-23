@@ -51,8 +51,8 @@ http://caitiao.okyun.fun/tags/mysql/
 http://caitiao.okyun.fun/tags/PersistentVolume/
 http://caitiao.okyun.fun/tags/PersistentVolumeClaim/
 http://caitiao.okyun.fun/categories/%E6%8A%80%E6%9C%AF/
-http://caitiao.okyun.fun/categories/%E6%8A%80%E6%9C%AF/k8s/
 http://caitiao.okyun.fun/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/
+http://caitiao.okyun.fun/categories/%E6%8A%80%E6%9C%AF/k8s/
 http://caitiao.okyun.fun/categories/%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/
 http://caitiao.okyun.fun/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/
 http://caitiao.okyun.fun/categories/%E5%BA%94%E7%94%A8%E7%A0%94%E5%8F%91/
