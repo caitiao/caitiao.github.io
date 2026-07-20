@@ -309,6 +309,31 @@
       </tags>
   </entry>
   <entry>
+    <title>常用docker命令</title>
+    <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
+    <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
+<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
+<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用Git命令</title>
     <url>/2023/10/23/chang-yong-git-ming-ling/</url>
     <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
@@ -351,31 +376,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用docker命令</title>
-    <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
-    <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
-<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
-<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
-<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
-<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
-<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
-<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>容器技术</tag>
       </tags>
   </entry>
   <entry>
