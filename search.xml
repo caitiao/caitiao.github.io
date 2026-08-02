@@ -89,23 +89,6 @@
       </tags>
   </entry>
   <entry>
-    <title>批量删除状态为Exited的容器</title>
-    <url>/2023/10/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
-    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
-<p>命令：</p>
-<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
-<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
-<p>这样就可以批量删除了！</p>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>容器技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>iterm2配置123</title>
     <url>/2023/12/07/iterm2-pei-zhi-zhi-nan/</url>
     <content><![CDATA[<p>拿到mac电脑后，第一件事一般都会需要配置一个适合自己用的终端。我一般选择iterm2作为日常工作的终端，下面我就来记录下怎么配置我的iterm2。</p>
@@ -141,6 +124,23 @@
       </categories>
       <tags>
         <tag>iterm2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>批量删除状态为Exited的容器</title>
+    <url>/2023/10/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
+<p>命令：</p>
+<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
+<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
+<p>这样就可以批量删除了！</p>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器技术</tag>
       </tags>
   </entry>
   <entry>
@@ -195,6 +195,30 @@
       </tags>
   </entry>
   <entry>
+    <title>kubectl常用命令</title>
+    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
+    <content><![CDATA[<p>kubectl常用命令</p>
+<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
+<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
+<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
+<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
+<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>kubectl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ls Operation not permitted</title>
     <url>/2023/10/23/ls-operation-not-permitted/</url>
     <content><![CDATA[<p>最近，我在Mac终端zsh中运行命令ls时，会出现如下错误，即使加了sudo也不行</p>
@@ -239,30 +263,6 @@
         <tag>k8s</tag>
         <tag>deployment</tag>
         <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kubectl常用命令</title>
-    <url>/2023/11/06/kubectl-chang-yong-ming-ling/</url>
-    <content><![CDATA[<p>kubectl常用命令</p>
-<h3 id="查看node"><a href="#查看node" class="headerlink" title="查看node"></a>查看node</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod"><a href="#查看pod" class="headerlink" title="查看pod"></a>查看pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看指定namespace下的pod"><a href="#查看指定namespace下的pod" class="headerlink" title="查看指定namespace下的pod"></a>查看指定namespace下的pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -n namespace</span><br></pre></td></tr></table></figure>
-<h3 id="执行yaml文件"><a href="#执行yaml文件" class="headerlink" title="执行yaml文件"></a>执行yaml文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-<h3 id="查看Service"><a href="#查看Service" class="headerlink" title="查看Service"></a>查看Service</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看描述信息"><a href="#查看描述信息" class="headerlink" title="查看描述信息"></a>查看描述信息</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pod &lt;pod-name&gt; -n &lt;namespace&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="查看pod所在节点"><a href="#查看pod所在节点" class="headerlink" title="查看pod所在节点"></a>查看pod所在节点</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods -o wide --all-namespaces</span><br></pre></td></tr></table></figure>
-<h3 id="查看apiVersion对应版本"><a href="#查看apiVersion对应版本" class="headerlink" title="查看apiVersion对应版本"></a>查看apiVersion对应版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl explain pod</span><br></pre></td></tr></table></figure>
-<h3 id="进入pod"><a href="#进入pod" class="headerlink" title="进入pod"></a>进入pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec -it &lt;pod-name&gt; --grace-period=0 --force</span><br></pre></td></tr></table></figure>
-<h3 id="使用yaml文件删除pod"><a href="#使用yaml文件删除pod" class="headerlink" title="使用yaml文件删除pod"></a>使用yaml文件删除pod</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f xxxx.yaml</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>kubectl</tag>
       </tags>
   </entry>
   <entry>
@@ -424,19 +424,6 @@
       </tags>
   </entry>
   <entry>
-    <title>根据进程名过滤进程信息</title>
-    <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
-    <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用脚本</category>
-      </categories>
-      <tags>
-        <tag>shell脚本</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>现代应用程序</title>
     <url>/2023/10/31/xian-dai-ying-yong-cheng-xu/</url>
     <content><![CDATA[<p>现代应用程序(Modern Application)是通过采用云原生体系结构来快速响应事件，满足客户多变需求的一种方法，它的构建采用了容器化，松散耦合的微服务架构模式，Serverless运行模式和DevOps自动化软件交付流程。</p>
@@ -460,6 +447,19 @@
         <tag>微服务</tag>
         <tag>多云</tag>
         <tag>弹性</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>根据进程名过滤进程信息</title>
+    <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
+    <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"># Function: 根据输入的程序的名字过滤出所对应的PID，并显示出详细信息，如果有几个PID，则全部显示</span><br><span class="line">read -p &quot;请输入要查询的进程名：&quot; NAME</span><br><span class="line">N=`ps aux | grep $NAME | grep -v grep | wc -l` ##统计进程总数</span><br><span class="line">if [ $N -le 0 ];then</span><br><span class="line">  echo &quot;该进程名没有运行！&quot;</span><br><span class="line">fi</span><br><span class="line">i=1</span><br><span class="line">while [ $N -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  echo &quot;进程PID: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $2&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程命令：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程所属用户: `ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $1&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;CPU占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $3&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;内存占用率：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $4&#125;&#x27;`%&quot;</span><br><span class="line">  echo &quot;进程开始运行的时刻：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $9&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程运行的时间：` ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $11&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程状态：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $8&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程虚拟内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $5&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;进程共享内存：`ps aux | grep $NAME | grep -v grep | awk &#x27;NR==&#x27;$i&#x27;&#123;print $0&#125;&#x27;| awk &#x27;&#123;print $6&#125;&#x27;`&quot;</span><br><span class="line">  echo &quot;***************************************************************&quot;</span><br><span class="line">  let N-- i++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用脚本</category>
+      </categories>
+      <tags>
+        <tag>shell脚本</tag>
       </tags>
   </entry>
   <entry>
