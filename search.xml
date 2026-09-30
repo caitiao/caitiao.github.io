@@ -309,54 +309,6 @@
       </tags>
   </entry>
   <entry>
-    <title>常用docker命令</title>
-    <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
-    <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
-<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
-<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
-<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
-<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
-<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
-<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>容器技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用Git命令</title>
-    <url>/2023/10/23/chang-yong-git-ming-ling/</url>
-    <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
-<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
-<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
-<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
-<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
-<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
-<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
-<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
-<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>版本管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用Hexo命令</title>
     <url>/2023/10/17/chang-yong-hexo-ming-ling/</url>
     <content><![CDATA[<p>hexo常用命令：<a href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
@@ -424,6 +376,29 @@
       </tags>
   </entry>
   <entry>
+    <title>常用Git命令</title>
+    <url>/2023/10/23/chang-yong-git-ming-ling/</url>
+    <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
+<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
+<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
+<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
+<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
+<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
+<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>版本管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>根据进程名过滤进程信息</title>
     <url>/2023/10/25/gen-ju-jin-cheng-ming-guo-lu-jin-cheng-xin-xi/</url>
     <content><![CDATA[<p>根据进程名过滤进程信息并显示出该进程名包含的所有线程，适用于MacOS</p>
@@ -434,6 +409,31 @@
       </categories>
       <tags>
         <tag>shell脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用docker命令</title>
+    <url>/2023/10/17/chang-yong-docker-ming-ling/</url>
+    <content><![CDATA[<h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像，不使用缓存"><a href="#在当前目录创建镜像，不使用缓存" class="headerlink" title="在当前目录创建镜像，不使用缓存"></a>在当前目录创建镜像，不使用缓存</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --no-cache -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="在当前目录创建镜像"><a href="#在当前目录创建镜像" class="headerlink" title="在当前目录创建镜像"></a>在当前目录创建镜像</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image-name&gt; .</span><br></pre></td></tr></table></figure>
+<h4 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container restart &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在交互模式下进入容器，并进入-bash-环境"><a href="#在交互模式下进入容器，并进入-bash-环境" class="headerlink" title="在交互模式下进入容器，并进入 bash 环境"></a>在交互模式下进入容器，并进入 bash 环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;continer-name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
+<h4 id="查看-docker-详情"><a href="#查看-docker-详情" class="headerlink" title="查看 docker 详情"></a>查看 docker 详情</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志"><a href="#从最后-10-行开始实时查看日志" class="headerlink" title="从最后 10 行开始实时查看日志"></a>从最后 10 行开始实时查看日志</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="从最后-10-行开始实时查看日志并过滤信息"><a href="#从最后-10-行开始实时查看日志并过滤信息" class="headerlink" title="从最后 10 行开始实时查看日志并过滤信息"></a>从最后 10 行开始实时查看日志并过滤信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs -f --tail 10 &lt;continer-name&gt; 2&gt;&amp;1 | grep &lt;pattern&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="查看当前运行的进程列表"><a href="#查看当前运行的进程列表" class="headerlink" title="查看当前运行的进程列表"></a>查看当前运行的进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有进程列表"><a href="#查看所有进程列表" class="headerlink" title="查看所有进程列表"></a>查看所有进程列表</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<h4 id="重启所有服务"><a href="#重启所有服务" class="headerlink" title="重启所有服务"></a>重启所有服务</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart `docker ps -a | awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
+<h4 id="查看-client-和-server-的版本"><a href="#查看-client-和-server-的版本" class="headerlink" title="查看 client 和 server 的版本"></a>查看 client 和 server 的版本</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器技术</tag>
       </tags>
   </entry>
   <entry>
