@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Deployment资源对象yaml详解</title>
-    <url>/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
-    <content><![CDATA[<p>Deployment资源对象yaml详解</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata: ----------------------------------------#元数据</span><br><span class="line">  annotations: -------------------------------------#注释信息</span><br><span class="line">    deployment.kubernetes.io/revision: &#x27;1&#x27;</span><br><span class="line">    k8s.kuboard.cn/ingress: &#x27;false&#x27;</span><br><span class="line">    k8s.kuboard.cn/service: NodePort</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels:-------------------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;            </span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud-----------------------------------#名称</span><br><span class="line">  namespace: nextcloud------------------------------#命名空间 </span><br><span class="line">spec:-----------------------------------------------#定义容器模板，该模板可以包含多个容器 </span><br><span class="line">  replicas: 3---------------------------------------#副本数量</span><br><span class="line">  selector:-----------------------------------------#标签选择器</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">      k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  strategy:-----------------------------------------#滚动升级策略</span><br><span class="line">    type: RollingUpdate-----------------------------#类型</span><br><span class="line">    rollingUpdate:----------------------------------#由于replicas为3,则整个升级,pod个数在2-4个之间    </span><br><span class="line">      maxSurge: 25%---------------------------------#滚动升级时会先启动25%pod  </span><br><span class="line">      maxUnavailable: 25%---------------------------#滚动升级时允许的最大Unavailable的pod个数</span><br><span class="line">  template:                     #镜像模板                   </span><br><span class="line">    metadata: ------------------------------------#元数据</span><br><span class="line">      labels:---------------------------------------#标签</span><br><span class="line">        k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">        k8s.kuboard.cn/name: nextcloud</span><br><span class="line">    spec: ------------------------------------------#定义容器模板，该模板可以包含多个容器</span><br><span class="line">      containers: ----------------------------------#容器信息</span><br><span class="line">    - name: nextcloud --------------------------#容器名称</span><br><span class="line">          image: &#x27;172.16.20.100/library/nextcloud:yan&#x27; #镜像名称</span><br><span class="line">          imagePullPolicy: Always ------------------#镜像下载策略 </span><br><span class="line">          ports:</span><br><span class="line">            - name: http</span><br><span class="line">              containerPort: 80</span><br><span class="line">              protocol: TCP</span><br><span class="line">          env</span><br><span class="line">          resources: -------------------------------#CPU内存限制</span><br><span class="line">        limits: --------------------------------#限制cpu内存                      </span><br><span class="line">              cpu: 200m</span><br><span class="line">              memory: 200m</span><br><span class="line">            requests: ------------------------------#请求cpu内存</span><br><span class="line">              cpu: 100m</span><br><span class="line">              memory: 100m</span><br><span class="line">          securityContext: -------------------------#安全设定</span><br><span class="line">            privileged: true -----------------------#开启享有特权</span><br><span class="line">          volumeMounts: ----------------------------#挂载volumes中定义的磁盘</span><br><span class="line">        - name: html ---------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/www/html </span><br><span class="line">            - name: session ------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/lib/php/session       </span><br><span class="line">      volumes:  ------------------------------------#在该pod上定义共享存储卷列表</span><br><span class="line">        - name: html -------------------------------#共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">          persistentVolumeClaim: -------------------#volumes类型为pvc</span><br><span class="line">            claimName: html  -----------------------#关联pvc名称</span><br><span class="line">        - name: session</span><br><span class="line">          persistentVolumeClaim:</span><br><span class="line">            claimName: session        </span><br><span class="line">      restartPolicy: Always ------------------------#Pod的重启策略 </span><br><span class="line">                              #Always表示一旦不管以何种方式终止运行，kubelet都将重启，</span><br><span class="line">                              #OnFailure表示只有Pod以非0退出码退出才重启，</span><br><span class="line">                              #Nerver表示不再重启该Pod</span><br><span class="line">      schedulerName: default-scheduler -------------#指定pod调度到节点</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>deployment</tag>
-        <tag>yaml</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用VS Code，Hexo与GitHub Pages写博客</title>
     <url>/2023/08/08/a-new-blog-vs-code-hexo-and-github-pages/</url>
     <content><![CDATA[<span id="more"></span>
@@ -57,6 +41,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Deployment资源对象yaml详解</title>
+    <url>/2023/10/25/deployment-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
+    <content><![CDATA[<p>Deployment资源对象yaml详解</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata: ----------------------------------------#元数据</span><br><span class="line">  annotations: -------------------------------------#注释信息</span><br><span class="line">    deployment.kubernetes.io/revision: &#x27;1&#x27;</span><br><span class="line">    k8s.kuboard.cn/ingress: &#x27;false&#x27;</span><br><span class="line">    k8s.kuboard.cn/service: NodePort</span><br><span class="line">    k8s.kuboard.cn/workload: nextcloud</span><br><span class="line">  labels:-------------------------------------------#标签信息</span><br><span class="line">    k8s.kuboard.cn/layer: &#x27;&#x27;            </span><br><span class="line">    k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  name: nextcloud-----------------------------------#名称</span><br><span class="line">  namespace: nextcloud------------------------------#命名空间 </span><br><span class="line">spec:-----------------------------------------------#定义容器模板，该模板可以包含多个容器 </span><br><span class="line">  replicas: 3---------------------------------------#副本数量</span><br><span class="line">  selector:-----------------------------------------#标签选择器</span><br><span class="line">    matchLabels:</span><br><span class="line">      k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">      k8s.kuboard.cn/name: nextcloud</span><br><span class="line">  strategy:-----------------------------------------#滚动升级策略</span><br><span class="line">    type: RollingUpdate-----------------------------#类型</span><br><span class="line">    rollingUpdate:----------------------------------#由于replicas为3,则整个升级,pod个数在2-4个之间    </span><br><span class="line">      maxSurge: 25%---------------------------------#滚动升级时会先启动25%pod  </span><br><span class="line">      maxUnavailable: 25%---------------------------#滚动升级时允许的最大Unavailable的pod个数</span><br><span class="line">  template:                     #镜像模板                   </span><br><span class="line">    metadata: ------------------------------------#元数据</span><br><span class="line">      labels:---------------------------------------#标签</span><br><span class="line">        k8s.kuboard.cn/layer: &#x27;&#x27;</span><br><span class="line">        k8s.kuboard.cn/name: nextcloud</span><br><span class="line">    spec: ------------------------------------------#定义容器模板，该模板可以包含多个容器</span><br><span class="line">      containers: ----------------------------------#容器信息</span><br><span class="line">    - name: nextcloud --------------------------#容器名称</span><br><span class="line">          image: &#x27;172.16.20.100/library/nextcloud:yan&#x27; #镜像名称</span><br><span class="line">          imagePullPolicy: Always ------------------#镜像下载策略 </span><br><span class="line">          ports:</span><br><span class="line">            - name: http</span><br><span class="line">              containerPort: 80</span><br><span class="line">              protocol: TCP</span><br><span class="line">          env</span><br><span class="line">          resources: -------------------------------#CPU内存限制</span><br><span class="line">        limits: --------------------------------#限制cpu内存                      </span><br><span class="line">              cpu: 200m</span><br><span class="line">              memory: 200m</span><br><span class="line">            requests: ------------------------------#请求cpu内存</span><br><span class="line">              cpu: 100m</span><br><span class="line">              memory: 100m</span><br><span class="line">          securityContext: -------------------------#安全设定</span><br><span class="line">            privileged: true -----------------------#开启享有特权</span><br><span class="line">          volumeMounts: ----------------------------#挂载volumes中定义的磁盘</span><br><span class="line">        - name: html ---------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/www/html </span><br><span class="line">            - name: session ------------------------#挂载容器1</span><br><span class="line">              mountPath: /var/lib/php/session       </span><br><span class="line">      volumes:  ------------------------------------#在该pod上定义共享存储卷列表</span><br><span class="line">        - name: html -------------------------------#共享存储卷名称 （volumes类型有很多种）</span><br><span class="line">          persistentVolumeClaim: -------------------#volumes类型为pvc</span><br><span class="line">            claimName: html  -----------------------#关联pvc名称</span><br><span class="line">        - name: session</span><br><span class="line">          persistentVolumeClaim:</span><br><span class="line">            claimName: session        </span><br><span class="line">      restartPolicy: Always ------------------------#Pod的重启策略 </span><br><span class="line">                              #Always表示一旦不管以何种方式终止运行，kubelet都将重启，</span><br><span class="line">                              #OnFailure表示只有Pod以非0退出码退出才重启，</span><br><span class="line">                              #Nerver表示不再重启该Pod</span><br><span class="line">      schedulerName: default-scheduler -------------#指定pod调度到节点</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>k8s</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+        <tag>deployment</tag>
+        <tag>yaml</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Service资源对象yaml详解</title>
     <url>/2023/10/25/service-zi-yuan-dui-xiang-yaml-xiang-jie/</url>
     <content><![CDATA[<p>Service资源对象yaml详解</p>
@@ -70,6 +70,23 @@
         <tag>k8s</tag>
         <tag>yaml</tag>
         <tag>service</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>批量删除状态为Exited的容器</title>
+    <url>/2023/10/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
+    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
+<p>命令：</p>
+<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
+<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
+<p>这样就可以批量删除了！</p>
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器技术</tag>
       </tags>
   </entry>
   <entry>
@@ -89,20 +106,21 @@
       </tags>
   </entry>
   <entry>
-    <title>批量删除状态为Exited的容器</title>
-    <url>/2023/10/25/docker-ming-ling-pi-liang-shan-chu-zhuang-tai-wei-exited-de-rong-qi/</url>
-    <content><![CDATA[<p>docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。</p>
-<p>命令：</p>
-<p>docker rm $(docker ps -q -f status&#x3D;exited)</p>
-<p>解释： 利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 。</p>
-<p>这样就可以批量删除了！</p>
+    <title>k8s如何停止服务</title>
+    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
+    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
+<ol>
+<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
+<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
+</ol>
 ]]></content>
       <categories>
-        <category>常用命令</category>
+        <category>技术</category>
+        <category>k8s</category>
       </categories>
       <tags>
-        <tag>docker</tag>
-        <tag>容器技术</tag>
+        <tag>k8s</tag>
+        <tag>service</tag>
       </tags>
   </entry>
   <entry>
@@ -141,24 +159,6 @@
       </categories>
       <tags>
         <tag>iterm2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>k8s如何停止服务</title>
-    <url>/2023/11/06/k8s-ru-he-ting-zhi-fu-wu/</url>
-    <content><![CDATA[<p>在k8s中，我们需要停止服务，主要有如下两种方式：</p>
-<ol>
-<li>通过命令行工具：使用kubectl命令可以管理k8s集群中的资源，停止服务命令如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete service [service_name]</span><br></pre></td></tr></table></figure></li>
-<li>通过api：可以通过k8s api来管理集群中的资源，使用http delete来发送停止服务的请求</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>k8s</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-        <tag>service</tag>
       </tags>
   </entry>
   <entry>
@@ -290,29 +290,6 @@
       </tags>
   </entry>
   <entry>
-    <title>常用Git命令</title>
-    <url>/2023/10/23/chang-yong-git-ming-ling/</url>
-    <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
-<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
-<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
-<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
-<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
-<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
-<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
-<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
-<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>版本管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用nmap扫描网段有多少主机在线</title>
     <url>/2023/12/07/shi-yong-nmap-sao-miao-wang-duan-you-duo-shao-zhu-ji-zai-xian/</url>
     <content><![CDATA[<p>光猫密码忘记了，想找到局域网内一台电脑的ip地址，就想着用工具去扫描出网络内活跃的主机。</p>
@@ -357,35 +334,26 @@
       </tags>
   </entry>
   <entry>
-    <title>应用现代化</title>
-    <url>/2023/10/31/ying-yong-xian-dai-hua/</url>
-    <content><![CDATA[<p>什么是应用现代化？对老旧软件进行更新使之采用更新的计算方式，包括更新的语言，框架和基础设施平台，就相当于对旧房进行翻新。通过新技术来更新改造及现代化应用的同时，来延长应用的生命周期。</p>
-<h4 id="应用现代化的意义"><a href="#应用现代化的意义" class="headerlink" title="应用现代化的意义"></a>应用现代化的意义</h4><ul>
-<li>延长原有应用程序的生命周期</li>
-<li>利用计算技术领域的创新成果</li>
-<li>发挥原有应用的更大价值</li>
-</ul>
-<h4 id="应用现代化的优点"><a href="#应用现代化的优点" class="headerlink" title="应用现代化的优点"></a>应用现代化的优点</h4><ul>
-<li>提高新功能的交付速度</li>
-<li>通过API方式公开现有应用的功能，供其他服务使用</li>
-<li>将应用的平台从本地转变为云，以达到扩大应用规模及提升应用性能</li>
-</ul>
-<h4 id="应用现代化面临的挑战"><a href="#应用现代化面临的挑战" class="headerlink" title="应用现代化面临的挑战"></a>应用现代化面临的挑战</h4><ul>
-<li>成本：应用现代化绝对不是为了降低成本</li>
-<li>复杂性：应用现代化后会带来一定的复杂度</li>
-</ul>
-<h4 id="应用现代化模式"><a href="#应用现代化模式" class="headerlink" title="应用现代化模式"></a>应用现代化模式</h4><ul>
-<li>从单体式到服务化：利用松散耦合的微服务取代单体式服务，由微服务来负责计算工作</li>
-<li>云迁移：通过容器化对应用进行更新改造，让应用更好的适配不同基础设施的部署发布</li>
-<li>通过API公开功能：通过API安全地公开功能及数据，让现代化应用能够复用传统服务的功能</li>
-</ul>
+    <title>常用Git命令</title>
+    <url>/2023/10/23/chang-yong-git-ming-ling/</url>
+    <content><![CDATA[<h4 id="提交文件到索引中-git-add"><a href="#提交文件到索引中-git-add" class="headerlink" title="提交文件到索引中 git add"></a>提交文件到索引中 git add</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add -A #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add -u #将所有修改、删除的文件提交到索引中</span><br><span class="line">git add . #将所有新增、修改、删除的文件提交到索引中</span><br><span class="line">git add --ignore-removal . #将所有新增、修改的文件提交到索引中</span><br></pre></td></tr></table></figure>
+<h4 id="查看文件每行的最后提交人和时间-git-blame"><a href="#查看文件每行的最后提交人和时间-git-blame" class="headerlink" title="查看文件每行的最后提交人和时间 git blame"></a>查看文件每行的最后提交人和时间 git blame</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git blame &lt;file&gt; #查看文件每行的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L :&lt;funcname&gt; #查看文件某个方法的最后提交人和时间</span><br><span class="line">git blame &lt;file&gt; -L &lt;start&gt;,&lt;end&gt; #查看文件行数范围内的最后提交人和时间</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有分支，并显示版本信息"><a href="#查看所有分支，并显示版本信息" class="headerlink" title="查看所有分支，并显示版本信息"></a>查看所有分支，并显示版本信息</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
+<h4 id="在本地创建远程分支"><a href="#在本地创建远程分支" class="headerlink" title="在本地创建远程分支"></a>在本地创建远程分支</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;local-branch-name&gt; origin/&lt;remote-branch-name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="clone项目"><a href="#clone项目" class="headerlink" title="clone项目"></a>clone项目</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone &lt;giturl&gt;</span><br><span class="line">git clone http://&lt;username&gt;:&lt;password&gt;@&lt;giturl&gt; #带用户名密码</span><br></pre></td></tr></table></figure>
+<h4 id="git配置-git-config"><a href="#git配置-git-config" class="headerlink" title="git配置 git config"></a>git配置 git config</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache #全局模式缓存凭证 15 分钟</span><br><span class="line">git config --global credential.helper store #全局模式储存仓库凭证</span><br><span class="line">git config --global user.email &quot;youremail@gmail.com&quot;  #全局配置 git 邮箱</span><br><span class="line">git config --global user.name &quot;your name&quot; #全局配置 git 用户名</span><br><span class="line">git config credential.helper store #储存当前仓库凭证</span><br></pre></td></tr></table></figure>
+<h4 id="把远程分支拉到本地-git-fetch"><a href="#把远程分支拉到本地-git-fetch" class="headerlink" title="把远程分支拉到本地 git fetch"></a>把远程分支拉到本地 git fetch</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch origin &lt;branch_name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化当前目录为仓库-git-init"><a href="#初始化当前目录为仓库-git-init" class="headerlink" title="初始化当前目录为仓库 git init"></a>初始化当前目录为仓库 git init</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git init &lt;repo_name&gt; #创建 仓库</span><br></pre></td></tr></table></figure>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --stat --author=&lt;pattern&gt; --after=&lt;date&gt; --before=&lt;date&gt; #查看某人一段时间的提交记录，并显示详情</span><br></pre></td></tr></table></figure>
+<h4 id="撤销所有合并操作"><a href="#撤销所有合并操作" class="headerlink" title="撤销所有合并操作"></a>撤销所有合并操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git merge --abort</span><br></pre></td></tr></table></figure>
+<h4 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>应用研发</category>
+        <category>常用命令</category>
       </categories>
       <tags>
-        <tag>现代化</tag>
-        <tag>微服务</tag>
+        <tag>git</tag>
+        <tag>版本管理</tag>
       </tags>
   </entry>
   <entry>
@@ -421,6 +389,38 @@
       </categories>
       <tags>
         <tag>shell脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>应用现代化</title>
+    <url>/2023/10/31/ying-yong-xian-dai-hua/</url>
+    <content><![CDATA[<p>什么是应用现代化？对老旧软件进行更新使之采用更新的计算方式，包括更新的语言，框架和基础设施平台，就相当于对旧房进行翻新。通过新技术来更新改造及现代化应用的同时，来延长应用的生命周期。</p>
+<h4 id="应用现代化的意义"><a href="#应用现代化的意义" class="headerlink" title="应用现代化的意义"></a>应用现代化的意义</h4><ul>
+<li>延长原有应用程序的生命周期</li>
+<li>利用计算技术领域的创新成果</li>
+<li>发挥原有应用的更大价值</li>
+</ul>
+<h4 id="应用现代化的优点"><a href="#应用现代化的优点" class="headerlink" title="应用现代化的优点"></a>应用现代化的优点</h4><ul>
+<li>提高新功能的交付速度</li>
+<li>通过API方式公开现有应用的功能，供其他服务使用</li>
+<li>将应用的平台从本地转变为云，以达到扩大应用规模及提升应用性能</li>
+</ul>
+<h4 id="应用现代化面临的挑战"><a href="#应用现代化面临的挑战" class="headerlink" title="应用现代化面临的挑战"></a>应用现代化面临的挑战</h4><ul>
+<li>成本：应用现代化绝对不是为了降低成本</li>
+<li>复杂性：应用现代化后会带来一定的复杂度</li>
+</ul>
+<h4 id="应用现代化模式"><a href="#应用现代化模式" class="headerlink" title="应用现代化模式"></a>应用现代化模式</h4><ul>
+<li>从单体式到服务化：利用松散耦合的微服务取代单体式服务，由微服务来负责计算工作</li>
+<li>云迁移：通过容器化对应用进行更新改造，让应用更好的适配不同基础设施的部署发布</li>
+<li>通过API公开功能：通过API安全地公开功能及数据，让现代化应用能够复用传统服务的功能</li>
+</ul>
+]]></content>
+      <categories>
+        <category>应用研发</category>
+      </categories>
+      <tags>
+        <tag>现代化</tag>
+        <tag>微服务</tag>
       </tags>
   </entry>
   <entry>
